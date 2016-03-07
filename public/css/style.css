@@ -1,0 +1,154 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-family: 'Roboto', sans-serif;
+}
+.header{
+    height: 50px;
+    text-align: center;
+    width: 100%;
+    background: #6979C2;
+    
+}
+footer{
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    text-align: center;
+}
+h1{
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+    
+}
+.menu{
+    height: 30px;
+    margin-bottom: 20px;
+    vertical-align: center;
+    
+    background: rgba(0,0,0,0.8);
+}
+.menu ul div{
+    height: 30px;
+}
+.menu ul div a{
+    padding-left: 30px;
+    text-decoration: none;
+    color: white;
+    vertical-align: middle;
+
+}
+.sub-menu{
+    width: 49%;
+    display: inline-block;
+    line-height: 30px;
+}
+
+.right{
+    text-align: right;
+}
+.content {
+    min-height: 520px;
+    width: 80%;
+    margin:auto;
+
+}
+
+.container{
+    
+}
+
+.title {
+    font-size: 26px;
+    text-align: center;
+}
+
+.item{
+    height: 170px;
+    text-align: center;
+    border: 2px solid black;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 35%;
+    
+}
+
+.table{
+    text-align: center;
+}
+
+.promo{
+  text-align: center; 
+  width: 335px;
+  margin-bottom: 10px;
+}
+
+.wrap {
+  width: 90%;
+  max-width: 700px;
+  padding: 40px;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0px 0px 3px grey;
+}
+.wrap.login {
+  max-width: 500px;
+}
+.wrap.comercio {
+  max-width: 450px;
+}
+
+.formulario{
+    width: 100%;
+    margin:auto;
+}
+.input-group{
+    padding: 5px;
+    width: 100%;
+}
+.form-control{
+  border: none;
+  border-bottom: 1px solid black;
+}
+.input-group.inline{
+    display: inline-block;
+    width: 40%;
+}
+.input-group.inline label{
+    width: auto;
+}
+.input-group.inline.calle label{
+    width: 147px;
+}
+.input-group.inline.calle{
+    width: 350px;
+}
+.input-group input{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 165px;
+}
+.input-group label{
+  color: black;
+  width: 150px;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 500;
+}
+.submit{
+    width: 100%;
+    text-align: center;
+}
+
+.modal-body div{
+  border: 1px solid black;
+  padding: 15px;
+  margin-bottom: 10px;
+}
