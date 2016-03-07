@@ -35,13 +35,7 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('/alta-promocion', 'CommerceController@NewPromotion');
 Route::post('/alta-promocion', 'CommerceController@StorePromotion');
 
-Route::get('form', function(){
- return View::make('promotion/form');
-});
 
-Route::any('/form-submit', function(Request $req){
- var_dump($req->file('file'));
-});
 
 //Users
 

@@ -19,11 +19,11 @@ class CommerceController extends Controller
     function index(){
         $promotions = promotion::Paginate(4);
 
-    	return view('user/comercios', ['promotions'=>$promotions]);
+    	return view('comercio/comercios', ['promotions'=>$promotions]);
     }
 
     function alta(){
-    	return view('user/nuevo-comercio');
+    	return view('comercio/nuevo-comercio');
     }
 
     function store(Request $Request){
@@ -33,6 +33,7 @@ class CommerceController extends Controller
     	$comercio->name = $Request->nombre;
     	$comercio->email = $Request->email;
     	$comercio->password = $Request->pass;
+        $comercio->status = '0';
 
     	
     	$comercios= Comercio::get();
@@ -78,6 +79,7 @@ class CommerceController extends Controller
         $promotion->image = '/images/'.$fileName;
 
         $promotion->shop_id = '1';
+        $promotion->status = '0';
 
         $promotion->save();
         

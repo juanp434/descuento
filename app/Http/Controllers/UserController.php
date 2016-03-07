@@ -42,6 +42,8 @@ class UserController extends Controller
     	 $user->cp = $Request->cp;
     	 $user->email = $Request->email;
     	 $user->password = $Request->pass;
+         $user->admin = '0';
+         $user->status = '0';
 
     	 $users = User::get();
     	 $flag= false;

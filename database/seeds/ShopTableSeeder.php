@@ -14,13 +14,15 @@ class ShopTableSeeder extends Seeder
         factory(App\Models\shop::class)->create([
                 'name' => 'Juan',
                 'email' => 'comercio1@admin.com',
-                'password' => bcrypt('admin')
+                'password' => bcrypt('admin'),
+                'status' => '1'
                 
             ]);
         factory(App\Models\shop::class)->create([
                 'name' => 'Pepe',
                 'email' => 'comercio2@admin.com',
-                'password' => bcrypt('admin')
+                'password' => bcrypt('admin'),
+                'status' => '1'
                 
             ]);
     }

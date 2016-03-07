@@ -21,6 +21,7 @@ class CreatePromotionsTable extends Migration
             $table->string('image');
             $table->integer('shop_id')->unsigned();
             $table->foreign('shop_id')->references('id')->on('shops');
+            $table->string('status');
             $table->rememberToken();
             $table->timestamps();
         });

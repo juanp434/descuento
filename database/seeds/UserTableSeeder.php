@@ -19,7 +19,8 @@ class UserTableSeeder extends Seeder
                 'cp'=>'7600',
                 'email' => 'Juan@admin.com',
                 'password' => bcrypt('admin'),
-                'admin'=>'1'
+                'admin'=>'1',
+                'status'=>'1'
             ]);
 
          factory(App\Models\User::class)->create([
@@ -29,7 +30,9 @@ class UserTableSeeder extends Seeder
                 'adress'=>'alem 88',
                 'cp'=>'7600',
                 'email' => 'pepe@admin.com',
-                'password' => bcrypt('admin')
+                'password' => bcrypt('admin'),
+                'admin' => '0',
+                'status' => '1'
             ]);
     }
 }
