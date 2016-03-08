@@ -41,11 +41,19 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" id="menu">
                     <li><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="comercios">Comercios Adheridos</a></li>
                     <li><a href="alta-comercio">Agrega tu comercio</a></li>
                     <li><a href="alta-promocion">Agregar promocion</a></li>
+                    <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Admin<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Alta Usuarios</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Alta comercios</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Alta promociones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/Denuncia-voucher">Denuncias Gastos</a></li>
+                        </ul>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

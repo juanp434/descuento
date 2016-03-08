@@ -29,7 +29,7 @@
                 <h4 class="modal-title">Detalle Descuento</h4>
               </div>
               <div class="modal-body">
-                <div><img src="{{$promotion->image}}" style="max-height: 100px;"></div>
+                <div class="text-center"><img src="{{$promotion->image}}" style="max-height: 100px;"></div>
                 <div>Nombre: {{$promotion->name}}</div>
                 <div>Descripcion: {{$promotion->description}}</div>
                 <div>
@@ -37,7 +37,7 @@
                     <p>Precio: ${{$promotion->final}}</p>
                     <p>Ahorras: ${{$promotion->price - $promotion->final}}</p>
                 </div>
-                <button type="button" class="btn btn-default">Comprar</button>
+                <div class="text-center"><a class="btn btn-default text-center" href="/comprar-voucher/{{$promotion->id}}">Comprar</a></div>
               </div>
             </div>
           </div>

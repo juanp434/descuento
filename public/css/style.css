@@ -54,10 +54,10 @@ h1{
     text-align: right;
 }
 .content {
-    min-height: 510px;
+    height: 85%;
+    min-height: 520px;
     width: 80%;
     margin:auto;
-
 }
 
 .container{
@@ -148,7 +148,21 @@ h1{
 }
 
 .modal-body div{
-  border: 1px solid black;
+  border-bottom: 1px solid #777;
   padding: 15px;
   margin-bottom: 10px;
 }
+
+.list-admin{
+  margin:auto;
+}
+.list-admin th, .list-admin tr td{
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
+.list-admin a{
+  margin-right: 5px;
+}
+
+

@@ -18,6 +18,7 @@
                 <div class="text-center"><button type="submit" class="btn btn-default">Suscribite</button></div>
             </form>
         </div>
+        </div>
     </div>
 </div>  
 @endsection
