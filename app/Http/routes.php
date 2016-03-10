@@ -15,8 +15,13 @@ use App\Http\Requests;
 |
 */
 Route::group(['middleware' => ['web']], function () {
+
+
    
 	Route::get('/', 'UserController@index');
+
+
+
 	
 	//USER
 	Route::get('/register', 'UserController@register');
@@ -47,17 +52,18 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/Aprovar-promociones/{id}', 'AdminController@PromotionAprove');
 	Route::get('/Eliminar-promociones/{id}', 'AdminController@PromotionDelete');
 
+	//VOUCHER
+	
+	Route::get('/alta-voucher', 'VoucherController@index');
+	Route::post('/alta-voucher', 'VoucherController@store');
+
 	Route::get('/Denuncia-voucher', 'VoucherController@DenunciasIndex');
 	Route::get('/Eliminar-voucher/{id}', 'VoucherController@DenunciasDesestimar');
 
 
-	//VOUCHER
-	Route::get('/comprar-voucher/{id}', 'VoucherController@Store');
-	
+});	
 
-	
 
-});
 
 
 

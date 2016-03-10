@@ -7,10 +7,10 @@
 @section('content')
 <div class="container">
     <div class="content">
-        <h1 class="home">Denuncias</h1>
+        <h1 class="home">Vouchers</h1>
 
         <table class="list-admin">
-        	@if ($vouchers != null)
+        	
             <th>Id</th>
         	<th>User Id</th>
         	<th>Promotion Id</th>
@@ -28,12 +28,8 @@
         		</td>
         	</tr>
 			@endforeach
-            @else
-                <h1>No hay vouchers</h1>
-            @endif
-
-
         </table>
+        <div><a href="/nuevo-voucher">Agregar voucher</a></div>
     </div>
 </div>  
 @endsection

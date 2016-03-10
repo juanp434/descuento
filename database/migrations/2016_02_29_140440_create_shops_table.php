@@ -18,6 +18,7 @@ class CreateShopsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('status');
+            $table->string('image');
             $table->rememberToken();
             $table->timestamps();
         });

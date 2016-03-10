@@ -16,20 +16,20 @@ use Session;
 class VoucherController extends Controller
 {
     function index(){
-        
-    	return redirect('/');
+        $users= User::get();
+        $promotions = promotion::get();
+
+    	return view('voucher/nuevo-voucher', ['users'=>$users, 'promotions'=>$promotions]);
     }
 
-    function store($id){
-    	$promotion = promotion::find($id);
-
+    function store(Request $req){
         $voucher = new voucher;
-        $voucher->user_id = $promotion->user_id;
-        $voucher->promotion_id = $promotion->id;
+        $voucher->user_id = $req->user;
+        $voucher->promotion_id = $req->promotion;
         $voucher->denunciado = '0';
         $voucher->save();
 
-    	return view('message', ['message'=>'Promocion comprada']);
+    	return view('action', ['message'=>'Voucher Agregado']);
     }
 
     function DenunciasIndex(){
