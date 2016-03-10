@@ -43,6 +43,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav" id="menu">
                     <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="promociones">Promociones</a></li>
                     <li><a href="comercios">Comercios Adheridos</a></li>
                     <li><a href="alta-comercio">Agrega tu comercio</a></li>
                     <li><a href="alta-promocion">Agregar promocion</a></li>
@@ -60,7 +61,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a data-toggle="modal" data-target="#Modal">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
@@ -77,7 +78,48 @@
             </div>
         </div>
     </nav>
-
+    <!-- Modal -->
+        <div id="Modal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login</h4>
+              </div>
+              <div class="modal-body1">
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    {!! csrf_field() !!}
+                    <div class="login">
+                        <label class="control-label col-md-4">Tipo usuario</label>
+                            <select name="select">
+                              <option value="user" selected="1">Usuario</option>
+                              <option value="shop">Comercio</option>
+                            </select>
+                    </div>
+                    <div class="login">
+                        <label class="control-label col-md-4">E-Mail Address</label>
+                        <input type="email" class="" name="email" value="{{ old('email') }}">
+                    </div>
+                    <div class="login">
+                        <label class="control-label col-md-4">Password</label>
+                        <input type="password" class="" name="password">
+                    </div>
+                    <div class="login">
+                        <label class="col-md-12 col-md-offset-4">
+                                <input type="checkbox" name="remember"> Remember Me
+                        </label>
+                    </div>
+                    <div class="login">
+                        <button type="submit" class="btn btn-primary col-md-offset-2">Login </button>
+                          
+                        <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>  
     @yield('content')
 
     <!-- JavaScripts -->

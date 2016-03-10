@@ -10,12 +10,14 @@
         <h1 class="home">Denuncias</h1>
 
         <table class="list-admin">
-        	<th>Id</th>
+        	@if ($vouchers != null)
+            <th>Id</th>
         	<th>User Id</th>
         	<th>Promotion Id</th>
         	<th>Denunciado</th>
         	<th>Acciones</th>
-        	@foreach($vouchers as $voucher)
+            
+            @foreach($vouchers as $voucher)
         	<tr>
         		<td>{{$voucher->id}}</td>
         		<td>{{$voucher->user_id}}</td>
@@ -26,6 +28,11 @@
         		</td>
         	</tr>
 			@endforeach
+            @else
+                <h1>No hay vouchers</h1>
+            @endif
+
+
         </table>
     </div>
 </div>  

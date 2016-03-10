@@ -164,5 +164,11 @@ h1{
 .list-admin a{
   margin-right: 5px;
 }
+.login{
+  width: 100%;
+  margin:auto;
+  padding-left: 15%;
+  margin-bottom: 15px;
+}
 
 

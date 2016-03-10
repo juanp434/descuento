@@ -24,14 +24,15 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/login', 'UserController@login');
 	Route::post('/login', 'UserController@enter');
 
+	//Promotions
+	Route::get('/promociones', 'PromotionController@index');
+	Route::get('/alta-promocion', 'PromotionController@NewPromotion');
+	Route::post('/alta-promocion', 'PromotionController@StorePromotion');
 
 	//Comercios
 	Route::get('/comercios', 'CommerceController@index');
 	Route::get('/alta-comercio', 'CommerceController@alta');
 	Route::post('/alta-comercio', 'CommerceController@store');
-
-	Route::get('/alta-promocion', 'CommerceController@NewPromotion');
-	Route::post('/alta-promocion', 'CommerceController@StorePromotion');
 
 	//ADMIN
 	Route::get('/lista-usuarios', 'AdminController@UserIndex');
@@ -46,8 +47,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/Aprovar-promociones/{id}', 'AdminController@PromotionAprove');
 	Route::get('/Eliminar-promociones/{id}', 'AdminController@PromotionDelete');
 
-	Route::get('/Denuncia-voucher', 'AdminController@DenunciasIndex');
-	Route::get('/Eliminar-voucher/{id}', 'AdminController@DenunciasDesestimar');
+	Route::get('/Denuncia-voucher', 'VoucherController@DenunciasIndex');
+	Route::get('/Eliminar-voucher/{id}', 'VoucherController@DenunciasDesestimar');
 
 
 	//VOUCHER

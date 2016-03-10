@@ -95,15 +95,5 @@ class AdminController extends Controller
         return redirect('/lista-promociones');
     }
 
-    function DenunciasIndex(){
-        $vouchers = voucher::get();
-
-        return view('admin/lista-vouchers', ['vouchers'=>$vouchers]);
-    }
-
-    function DenunciasDesestimar($id){
-        $voucher = voucher::find($id);
-
-        return redirect('/lista-vouchers');
-    }
+    
 }

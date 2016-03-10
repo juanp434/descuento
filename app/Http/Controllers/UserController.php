@@ -27,7 +27,7 @@ class UserController extends Controller
     	return view('auth/register');
     }
 
-    function login(){
+    function login(Request $req){
     	return view('auth/login');
     }
     function store(Request $Request){
@@ -66,7 +66,7 @@ class UserController extends Controller
     }
 
     function enter(Request $Request){
-    	$users = User::get();
+    	$type = $Request->select;
 
 
     	$email= $Request->email;
@@ -75,7 +75,8 @@ class UserController extends Controller
     	//buscar en users
     	//buscar en comercios
 
+        var_dump();
 
-    	return redirect('/');
+    	//return redirect('/');
     }
 }
