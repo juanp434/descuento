@@ -34,5 +34,17 @@ class UserTableSeeder extends Seeder
                 'admin' => '0',
                 'status' => '1'
             ]);
+
+         factory(App\Models\User::class)->create([
+                'name' => 'luis',
+                'last'=>'Lopez',
+                'dni'=>'45666888',
+                'adress'=>'alem 88',
+                'cp'=>'7600',
+                'email' => 'luis@admin.com',
+                'password' => bcrypt('admin'),
+                'admin' => '0',
+                'status' => '1'
+            ]);
     }
 }

@@ -33,14 +33,7 @@ class AdminController extends Controller
         return redirect('/lista-usuarios');
     }
 
-    function UserDelete($id){
-        $user = User::find($id);
-
-        $user->delete();
-
-        
-        return redirect('/lista-usuarios');
-    }
+    
 
     function ShopIndex(){
         $shops = shop::get();
@@ -59,14 +52,7 @@ class AdminController extends Controller
         return redirect('/lista-comercios');
     }
 
-    function ShopDelete($id){
-        $shop = shop::find($id);
-
-        $shop->delete();
-
-        
-        return redirect('/lista-comercios');
-    }
+    
 
 
     function PromotionIndex(){
@@ -81,15 +67,6 @@ class AdminController extends Controller
 
         $promotion->status = '1';
         $promotion->update();
-
-        
-        return redirect('/lista-promociones');
-    }
-
-    function PromotionDelete($id){
-        $promotion = promotion::find($id);
-
-        $promotion->delete();
 
         
         return redirect('/lista-promociones');

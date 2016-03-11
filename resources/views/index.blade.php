@@ -41,9 +41,6 @@
                     <p>Precio: ${{$promotion->final}}</p>
                     <p>Ahorras: ${{$promotion->price - $promotion->final}}</p>
                 </div>
-                <div class="text-center">
-                <a class="btn btn-default" href="/comprar-voucher/{{$promotion->id}}">Comprar</a>
-                </div>
               </div>
             </div>
           </div>

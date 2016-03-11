@@ -45,24 +45,25 @@
                     <li><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="promociones">Promociones</a></li>
                     <li><a href="comercios">Comercios Adheridos</a></li>
-
+                    <li><a href="vouchers">Comprobantes</a></li>
+                    
                     <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comercio<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-voucher">Alta comprobante</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Liquidaciones</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/comercio-index">Pantalla inicio</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/Descargo">Descargo gastos denunciados</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-promocion"> Alta Promocion</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-voucher"> Alta Comprobante</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/liquidaciones"> Liquidaciones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/Descargo">Gastos denunciados</a></li>
                         </ul>
                     </li>
                     
                     <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Admin<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Lista Usuarios</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Lista comercios</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Lista promociones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Aprovar Usuarios</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Aprovar comercios</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Aprovar promociones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/vouchers">  Comprobantes</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/Denuncia-voucher">Denuncias Gastos</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-comercio">Alta comercio</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-promocion">Alta promocion</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-comercio">Generar Liquidaciones</a></li>
                         </ul>
                     </li>
                 </ul>

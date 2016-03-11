@@ -50,6 +50,6 @@ class PromotionController extends Controller
 
         $promotion->save();
         
-        return view('action', ['message'=>'Promocion agregada']);
+        return view('action', ['message'=>'Promocion solicitada']);
     }
 }

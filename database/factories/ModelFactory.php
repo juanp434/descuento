@@ -42,3 +42,12 @@ $factory->define(App\Models\shop::class, function () {
         'password' => ''
     ];
 });
+
+$factory->define(App\Models\voucher::class, function(){
+    return [
+        'user_id' => '',
+        'promotion_id'=>'',
+        'denunciado'=>'',
+        'descargo'=>'',
+    ];
+});
