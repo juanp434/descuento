@@ -40,7 +40,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/alta-voucher', 'VoucherController@index');
 	Route::post('/alta-voucher', 'VoucherController@store');
 
-	Route::get('/liquidaciones', 'VoucherController@liquidacion');
+	Route::get('/cambiar-estado-liquidacion/{id}', 'VoucherController@liquidacion');
 
 	Route::get('/descargo-gastos-denunciados', 'VoucherController@descargo');	
 
@@ -62,7 +62,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/lista-gastos-denunciados', 'VoucherController@gastos');	
 
-	Route::get('/generar-liquidaciones', 'VoucherController@altaLiquidacion');	
+	Route::get('/generar-liquidaciones', 'VoucherController@listaLiquidacion');	
 	
 });	
 

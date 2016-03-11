@@ -17,7 +17,7 @@ use Session;
 class AdminController extends Controller
 {
     function UserIndex(){
-        $users = User::get();
+        $users = User::where('status',0)->get();
         //pasar los que tinen status 0 solamente
 
     	return view('admin/lista-usuarios', ['users'=>$users]);
@@ -33,10 +33,8 @@ class AdminController extends Controller
         return redirect('/lista-usuarios');
     }
 
-    
-
     function ShopIndex(){
-        $shops = shop::get();
+        $shops = shop::where('status',0)->get();
         //pasar los que tinen status 0 solamente
 
     	return view('admin/lista-comercios', ['shops'=>$shops]);
@@ -52,11 +50,8 @@ class AdminController extends Controller
         return redirect('/lista-comercios');
     }
 
-    
-
-
     function PromotionIndex(){
-        $promotions = promotion::get();
+        $promotions = promotion::where('status',0)->get();
         //pasar los que tinen status 0 solamente
 
     	return view('admin/lista-promociones', ['promotions'=>$promotions]);
@@ -71,6 +66,4 @@ class AdminController extends Controller
         
         return redirect('/lista-promociones');
     }
-
-    
 }

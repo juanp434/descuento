@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\promotion;
 use App\Models\shop;
 use App\Models\voucher;
+use App\Models\liquidacion;
 use Auth;
 use Session;
 
@@ -49,11 +50,10 @@ class VoucherController extends Controller
         return view('voucher/lista-vouchers', ['vouchers'=>$vouchers, 'head'=>'Comprobantes']);
     }
 
-    function altaLiquidacion(){
-        $vouchers = voucher::get();
+    function listaLiquidacion(){
+        $liquidaciones = liquidacion::get();
 
-        return view('voucher/lista-vouchers', ['vouchers'=>$vouchers, 'head'=>'Comprobantes']);
-        
+        return view('liquidaciones/liquidaciones', ['liquidations'=>$liquidaciones]);
     }
 
     function liquidacion(){

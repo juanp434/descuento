@@ -35,7 +35,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Logo
+                    Descuentos
                 </a>
             </div>
 
@@ -63,7 +63,7 @@
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Aprovar promociones</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/vouchers">  Comprobantes</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/Denuncia-voucher">Denuncias Gastos</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-comercio">Generar Liquidaciones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidaciones">Generar Liquidaciones</a></li>
                         </ul>
                     </li>
                 </ul>
