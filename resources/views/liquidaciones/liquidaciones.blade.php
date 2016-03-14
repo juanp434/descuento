@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="content">
     <div class="content">
         <h1 class="home">Liquidaciones</h1>
 
@@ -23,7 +23,7 @@
         		<td>{{$liquidation->Monto}}</td>
         		<td>
                 @if ($liquidation->estado == 'PENDIENTE')
-                <a href="/generar-liquidacion/{{$liquidation->id}}">Liquidar</a>
+                <a href="/liquidaciones/{{$liquidation->id}}">Verificar</a>
                 @endif
                 </td>
         	</tr>

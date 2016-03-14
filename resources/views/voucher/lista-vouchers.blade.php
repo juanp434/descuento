@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-<div class="container">
     <div class="content">
         <h1 class="home">{{$head}}</h1>
 
@@ -23,7 +22,7 @@
         		<td>{{$voucher->id}} </td>
         		<td>{{$voucher->user_id}} </td>
         		<td>{{$voucher->promotion_id}} </td>
-        		<td>{{$voucher->denunciado}} </td>
+        		<td>@if ($voucher->denunciado == 0)No @else Si @endif </td>
         		<td>
                     @if ($voucher->denunciado == 0)
         			<a href="/Denuncia-voucher/{{$voucher->id}}">Denunciar</a>
@@ -34,5 +33,4 @@
 			@endforeach
         </table>
     </div>
-</div>  
 @endsection

@@ -7,18 +7,18 @@
 @section('content')
 
 <div class="content">
-       <div class="title"><label>Promociones</label></div>
+      <h1>Promociones</h1>
         
-        <table class="table">
+       
         @foreach ($promotions as $promotion)
-            <tr class="item">
-                <td>
+            <div class="col-md-6">
+                <div class="item">
                 <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
 	                <div class="promo"><img src='{{$promotion->image}}' style="width: 200px; height: 100px;"></div>
 	                <div class="promo">Descripcion: {{$promotion->description}}</div>
                 </a>
-                </td>
-            </tr>
+                </div>
+            </div>
              <!-- Modal -->
         <div id="myModal{{$promotion->id}}" class="modal fade" role="dialog">
           <div class="modal-dialog">
@@ -42,7 +42,6 @@
           </div>
         </div>   
         @endforeach
-        </table>
         <div class="text-center">
           {!! $promotions->render() !!}
         </div>

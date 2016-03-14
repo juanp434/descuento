@@ -52,7 +52,7 @@
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-promocion"> Alta Promocion</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-voucher"> Alta Comprobante</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/liquidaciones"> Liquidaciones</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/Descargo">Gastos denunciados</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/gastos-denunciados">Gastos denunciados</a></li>
                         </ul>
                     </li>
                     
@@ -62,8 +62,8 @@
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Aprovar comercios</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Aprovar promociones</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/vouchers">  Comprobantes</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/Denuncia-voucher">Denuncias Gastos</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidaciones">Generar Liquidaciones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-gastos-denunciados">Denuncias Gastos</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidacion">Generar Liquidaciones</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -5,23 +5,21 @@
 @endsection
 
 @section('content')
-<div class="content">
-        <div class="title"><label>Ultimos Comercios Adheridos</label></div>
+<div class="content ">
+        <h1>Ultimos Comercios Adheridos</h1>
         
-		<table class="table">
         @foreach ($promotions as $promotion)
-        	
-            <tr class="item">
-        		<td>
-                <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
-        			<span></span>
-                    <div class="promo">
-	                <img src='{{$promotion->image}}' style="width: 200px; height: 100px;">
-            		</div>
-            		<div class="promo">Descripcion: {{$promotion->description}}</div>
-        		</a>
-                </td>
-            </tr>
+        	<div class="col-md-6">
+                <div class="item ">
+                    <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
+            			<span></span>
+                        <div class="promo">
+    	                <img src='{{$promotion->image}}' style="width: 200px; height: 100px;">
+                		</div>
+                		<div class="promo">Descripcion: {{$promotion->description}}</div>
+            		</a>
+                </div>
+            </div>
 
             <!-- Modal -->
         <div id="myModal{{$promotion->id}}" class="modal fade" role="dialog">
@@ -47,6 +45,6 @@
         </div>   
 
         @endforeach  
-        </table>
+        
 </div>
 @endsection

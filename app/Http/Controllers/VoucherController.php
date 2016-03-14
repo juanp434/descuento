@@ -10,9 +10,10 @@ use App\Models\User;
 use App\Models\promotion;
 use App\Models\shop;
 use App\Models\voucher;
-use App\Models\liquidacion;
+use App\Models\liquidation;
 use Auth;
 use Session;
+use DB;
 
 class VoucherController extends Controller
 {
@@ -41,7 +42,7 @@ class VoucherController extends Controller
 
         $vouchers= voucher::get();
 
-        return view('voucher/lista-vouchers', ['vouchers'=>$vouchers, 'head'=>'Denunciar Comprobantes']);
+        return redirect('/vouchers');
     }
 
     function lista(){
@@ -51,38 +52,70 @@ class VoucherController extends Controller
     }
 
     function listaLiquidacion(){
-        $liquidaciones = liquidacion::get();
 
-        return view('liquidaciones/liquidaciones', ['liquidations'=>$liquidaciones]);
+        $promotions = DB::table('promotions')
+                        ->join('vouchers', 'promotions.id', '=', 'vouchers.promotion_id')
+                        ->get();
+        
+        return view('liquidaciones/nueva-liquidacion', ['promotions'=>$promotions]);
     }
 
-    function liquidacion(){
-        $vouchers = voucher::get();
+    function altaLiquidacion(Request $req){
 
-        return view('voucher/lista-vouchers', ['vouchers'=>$vouchers, 'head'=>'Liquidaciones']);
+        $id = $req->select;
+
+        $promotion = promotion::find($id);
+        $vouchers = voucher::where('promotion_id', $promotion->id)->get();
+
+        $liquidacion = new liquidation;
+        $liquidacion->promotion_id = $promotion->id;
+        $liquidacion->estado = 'PENDIENTE';
+        $cont=0;
+        foreach ($vouchers as $voucher) {
+                $cont++;   
+                }        
+
+        $liquidacion->Monto = $cont*$promotion->final;
+        $liquidacion->save();
+
+        return view('action', ['message'=>'Liquidacion generada']);
+    }
+
+    function liquidaciones(){
+        $liquidations = liquidation::get();
+
+        return view('liquidaciones/liquidaciones', ['liquidations'=>$liquidations, 'head'=>'Liquidaciones']);
+    }
+
+    function verificarLiquidacion($id){
+        $liquidation = liquidation::find($id);
+
+        $liquidation->estado = 'COBRADO';
+        $liquidation->update();
+
+        return redirect('/liquidaciones');
     }
 
     function gastos(){
-        $vouchers = voucher::get();
+        $vouchers = voucher::where('denunciado',1)->get();
+        
 
-
-        $array = new voucher;
-        foreach ($vouchers as $voucher) {
-            if($voucher->denunciado == 1 ){
-                array_push($array, $voucher);
-            }
-        }
-
-        return view('voucher/lista-vouchers', ['vouchers'=>$array, 'head'=>'Gastos Denunciados']);
+        return view('voucher/lista-vouchers', ['vouchers'=>$vouchers, 'head'=>'Gastos Denunciados']);
     }
 
-    function descargo($id, $descargo){
-        $voucher = voucher::find($id);
+    function GastosDenuncias(){
+       $vouchers = voucher::where('denunciado',1)->get();
 
-        $voucher->descargo = $descargo;
-        $voucher->update();
+       return view('voucher/nuevo-descargo',['vouchers'=>$vouchers]);
+    }
 
-        return redirect('/vouchers');
+    function GastosDescargo($id){
+       $voucher = voucher::find($id);
+
+       $voucher->descargo = $descargo;
+       $voucher->update();
+
+       return redirect('/gastos-denunciados');
     }
     
 

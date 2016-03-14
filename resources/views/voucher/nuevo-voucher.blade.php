@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="content">
+<div class="content">
         <h1 class="home">Alta Voucher</h1>
         <div class="wrap comercio">
             <form class="form-horizontal" method="POST" action="/alta-voucher">
@@ -35,6 +34,5 @@
             </form>
         </div>
         
-    </div>
-</div>  
+</div>
 @endsection
