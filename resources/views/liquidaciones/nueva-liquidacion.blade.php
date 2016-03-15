@@ -13,7 +13,7 @@
 			<form action="/generar-liquidacion" method="POST" >
 			{!! csrf_field() !!}
 				<div style="margin: 15px 0px;">
-					<select name="select">
+					<select name="select" required>
 						@foreach($promotions as $promotion)
 							<option value="{{$promotion->id}}">{{$promotion->name}}</option>
 						@endforeach

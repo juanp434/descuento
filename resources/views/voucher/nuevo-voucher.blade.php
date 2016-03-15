@@ -12,7 +12,7 @@
             {!! csrf_field() !!}
             <div class="promo">
                 <label class="col-md-4">Usuario</label>
-                <select name="user">
+                <select name="user" required>
                     @foreach($users as $user)
                         @if ($user->admin == 0)
                             <option value="{{$user->id}}">{{$user->name}}</option>
@@ -22,7 +22,7 @@
             </div>
             <div class="promo">
                 <label class="col-md-4">Promocion</label>
-                <select name="promotion">
+                <select name="promotion" required>
                     @foreach( $promotions as $promotion) 
                     <option value="{{$promotion->id}}">{{$promotion->name}}</option>
                     @endforeach

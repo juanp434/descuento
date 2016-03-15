@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="content">
-        <h1 class="home">{{$head}}</h1>
+        <h1 class="home">Denuncias</h1>
 
         <table class="list-admin">
         	
@@ -38,25 +38,21 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Realizar Descargo</h4>
+                    <h4 class="modal-title text-center">Ingrese su Descargo</h4>
                   </div>
-                  <div class="modal-body">
-                    
-                    <form action="#" method="POST">
+                  <div class="modal-body text-center">
+                    <form action="/gastos-denunciados/{{$voucher->id}}" method="POST">
+                        {!! csrf_field() !!}
                         <div>
-                            <input rows="4" cols="30" name="text" placeholder="Ingrese descargo">
-                            </input>
+                            <label style="vertical-align: top; padding-right: 10px;">Descargo:</label>
+                            <textarea  name="text" rows="5" cols="40" style="text-align: left;" placeholder="Ingresar descargo" required></textarea>
                         </div>
-                        <button type="submit">Aceptar</button>
-
+                        <button type="submit" class="text-center">Aceptar</button>
                     </form>
-                    
-
                   </div>
                 </div>
               </div>
             </div>   
-
 			@endforeach
         </table>
     </div>

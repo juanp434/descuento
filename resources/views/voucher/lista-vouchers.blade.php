@@ -14,6 +14,7 @@
         	<th>User Id</th>
         	<th>Promotion Id</th>
         	<th>Denunciado</th>
+            <th>Descargo</th>
             <th>Acciones</th>
         	
             
@@ -23,7 +24,8 @@
         		<td>{{$voucher->user_id}} </td>
         		<td>{{$voucher->promotion_id}} </td>
         		<td>@if ($voucher->denunciado == 0)No @else Si @endif </td>
-        		<td>
+        		<td>@if ($voucher->descargo)Si @else No @endif</td>
+                <td>
                     @if ($voucher->denunciado == 0)
         			<a href="/Denuncia-voucher/{{$voucher->id}}">Denunciar</a>
                     

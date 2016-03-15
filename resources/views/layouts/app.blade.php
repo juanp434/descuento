@@ -64,6 +64,7 @@
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/vouchers">  Comprobantes</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-gastos-denunciados">Denuncias Gastos</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidacion">Generar Liquidaciones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/prueba">Auth</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -73,7 +74,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a data-toggle="modal" data-target="#Modal">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -96,36 +97,28 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Login</h4>
+                <h4 class="modal-title text-center">Login</h4>
               </div>
               <div class="modal-body1">
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                     {!! csrf_field() !!}
                     <div class="login">
-                        <label class="control-label col-md-4">Tipo usuario</label>
-                            <select name="select">
-                              <option value="user" selected="1">Usuario</option>
-                              <option value="shop">Comercio</option>
-                            </select>
-                    </div>
-                    <div class="login">
-                        <label class="control-label col-md-4">E-Mail Address</label>
+                        <label class="control-label col-md-5">E-Mail Address</label>
                         <input type="email" class="" name="email" value="{{ old('email') }}">
                     </div>
                     <div class="login">
-                        <label class="control-label col-md-4">Password</label>
+                        <label class="control-label col-md-5">Password</label>
                         <input type="password" class="" name="password">
                     </div>
-                    <div class="login">
-                        <label class="col-md-12 col-md-offset-4">
-                                <input type="checkbox" name="remember"> Remember Me
-                        </label>
+                    <div class="login text-center">
+                        <button type="submit" class="btn btn-primary">Login </button>
                     </div>
-                    <div class="login">
-                        <button type="submit" class="btn btn-primary col-md-offset-2">Login </button>
-                          
+                    <div class="login text-center">
+                        <input type="checkbox" name="remember">Remember Me</input>
+                    </div>
+                    <div class="login text-center">
                         <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                    </div>
+                    </div>      
                 </form>
               </div>
             </div>

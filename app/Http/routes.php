@@ -4,6 +4,8 @@ use App\Http\Controllers\Input;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+
+use Auth;
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -25,8 +27,14 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/register', 'UserController@register');
 	Route::post('/register', 'UserController@store');
+	Route::get('/nuevo-comercio', 'UserController@Comercio');
+	Route::post('/nuevo-comercio', 'UserController@storeComercio');
 	Route::get('/login', 'UserController@login');
 	Route::post('/login', 'UserController@enter');
+
+	Route::get('/prueba', function(){
+		var_dump(auth::user());
+	});
 	
 	//USER
 	Route::get('/vouchers', 'VoucherController@lista');
@@ -44,7 +52,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/liquidaciones/{id}', 'VoucherController@verificarLiquidacion');
 
 	Route::get('/gastos-denunciados', 'VoucherController@GastosDenuncias');
-	Route::get('/gastos-denunciados/{id}', 'VoucherController@GastosDescargo');		
+	Route::post('/gastos-denunciados/{id}', 'VoucherController@GastosDescargo');		
 
 	//ADMIN
 
@@ -65,8 +73,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/lista-gastos-denunciados', 'VoucherController@gastos');	
 
 	Route::get('/generar-liquidacion', 'VoucherController@listaLiquidacion');
-	Route::post('/generar-liquidacion', 'VoucherController@altaLiquidacion');		
-	
+	Route::post('/generar-liquidacion', 'VoucherController@altaLiquidacion');
+
 });	
 
 

@@ -16,6 +16,7 @@ class ShopTableSeeder extends Seeder
                 'email' => 'comercio1@admin.com',
                 'password' => bcrypt('admin'),
                 'status' => '1',
+                'user_id' => '4',
                 'image' => 'images/shops/1.gif'
                 
             ]);
@@ -24,6 +25,7 @@ class ShopTableSeeder extends Seeder
                 'email' => 'comercio2@admin.com',
                 'password' => bcrypt('admin'),
                 'status' => '1',
+                'user_id' => '5',
                 'image' => 'images/shops/2.gif'
                 
             ]);

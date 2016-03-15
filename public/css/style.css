@@ -21,6 +21,7 @@ footer{
     background: rgba(0,0,0,0.6);
     color: white;
     text-align: center;
+    clear: both;
 }
 h1{
     text-align: center;
@@ -122,6 +123,7 @@ h1{
 .form-control{
   border: none;
   border-bottom: 1px solid black;
+  border-radius: 0;
 }
 .input-group.inline{
     display: inline-block;
@@ -172,10 +174,10 @@ h1{
   margin-right: 5px;
 }
 .login{
-  width: 100%;
-  margin:auto;
-  padding-left: 15%;
-  margin-bottom: 15px;
+  
+  margin:15px auto;
+  
+  
 }
 
 .box1{

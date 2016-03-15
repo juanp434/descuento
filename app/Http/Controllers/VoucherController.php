@@ -104,20 +104,17 @@ class VoucherController extends Controller
     }
 
     function GastosDenuncias(){
-       $vouchers = voucher::where('denunciado',1)->get();
+       $vouchers = voucher::where('denunciado',1)->where('descargo','')->get();
 
        return view('voucher/nuevo-descargo',['vouchers'=>$vouchers]);
     }
 
-    function GastosDescargo($id){
+    function GastosDescargo($id, Request $req){
        $voucher = voucher::find($id);
-
-       $voucher->descargo = $descargo;
+       
+       $voucher->descargo = $req->text;
        $voucher->update();
 
-       return redirect('/gastos-denunciados');
+       return view('action', ['message'=>'Descargo realizado']);
     }
-    
-
-    
 }
