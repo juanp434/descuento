@@ -31,7 +31,7 @@ class UserTableSeeder extends Seeder
                 'cp'=>'7600',
                 'email' => 'pepe@admin.com',
                 'password' => bcrypt('admin'),
-                'admin' => 'user',
+                'role' => 'user',
                 'status' => '1'
             ]);
 
@@ -43,7 +43,7 @@ class UserTableSeeder extends Seeder
                 'cp'=>'7600',
                 'email' => 'luis@admin.com',
                 'password' => bcrypt('admin'),
-                'admin' => 'user',
+                'role' => 'user',
                 'status' => '1'
             ]);
          factory(App\Models\User::class)->create([
@@ -54,7 +54,7 @@ class UserTableSeeder extends Seeder
                 'cp'=>'7600',
                 'email' => 'lea@admin.com',
                 'password' => bcrypt('admin'),
-                'admin' => 'shop',
+                'role' => 'shop',
                 'status' => '1'
             ]);
          factory(App\Models\User::class)->create([
@@ -63,9 +63,9 @@ class UserTableSeeder extends Seeder
                 'dni'=>'4892244',
                 'adress'=>'alem 888',
                 'cp'=>'7600',
-                'email' => 'lea@admin.com',
+                'email' => 'nico@admin.com',
                 'password' => bcrypt('admin'),
-                'admin' => 'shop',
+                'role' => 'shop',
                 'status' => '1'
             ]);
     }

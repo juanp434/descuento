@@ -11,13 +11,16 @@
         
        
         @foreach ($promotions as $promotion)
+            
             <div class="col-md-6">
-                <div class="item">
-                <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
-	                <div class="promo"><img src='{{$promotion->image}}' style="width: 200px; height: 100px;"></div>
-	                <div class="promo">Descripcion: {{$promotion->description}}</div>
-                </a>
-                </div>
+                @if($promotion->id % 2 != 0)<div class="col-md-6"></div> @endif
+                  <div class="item col-md-6">
+                  <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
+  	                <div class="promo"><img src='{{$promotion->image}}' style="width: 200px; height: 100px;"></div>
+  	                <div class="promo">Descripcion: {{$promotion->description}}</div>
+                  </a>
+                  </div>
+                @if($promotion->id % 2 == 0)<div class="col-md-6"></div> @endif
             </div>
              <!-- Modal -->
         <div id="myModal{{$promotion->id}}" class="modal fade" role="dialog">

@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -69,8 +69,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/alta-comercio', 'CommerceController@alta');
 	Route::post('/alta-comercio', 'CommerceController@store');
 	
-	Route::get('/vouchers', 'VoucherController@lista');
-
 	Route::get('/lista-gastos-denunciados', 'VoucherController@gastos');	
 
 	Route::get('/generar-liquidacion', 'VoucherController@listaLiquidacion');

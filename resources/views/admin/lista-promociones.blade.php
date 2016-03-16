@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-    <title> Alta Comercios </title>
+    <title> Alta Promociones </title>
 @endsection
 
 @section('content')
     <div class="content">
-        <h1 class="home">Comercios</h1>
+        <h1 class="home">Promociones</h1>
 
         <table class="list-admin">
             <th>Id</th>

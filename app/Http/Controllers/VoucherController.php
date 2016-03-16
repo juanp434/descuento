@@ -118,12 +118,6 @@ class VoucherController extends Controller
        return view('action', ['message'=>'Descargo realizado']);
     }
 
-    function DenunciasIndex(){
-        $vouchers = voucher::get();
-
-        return view('admin/lista-vouchers', ['vouchers'=>$vouchers]);
-    }
-
     function DenunciasDesestimar($id){
         $voucher = voucher::find($id);
 

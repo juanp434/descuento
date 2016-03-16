@@ -5,7 +5,7 @@
 @section('content')
 <div class="content">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <h1>Registro Usuario</h1> 
             
             <div class="text-right"><a href="/nuevo-comercio">Registra tu Comercio</a></div>
