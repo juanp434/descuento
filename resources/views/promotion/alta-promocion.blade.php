@@ -15,28 +15,28 @@
                         <div class="form-group">
                             {{ Form::label('name','Nombre',array('id'=>'','class'=>'col-md-4 control-label')) }}
                             <div class="col-md-6">
-                                {{ Form::text('name','',array('id'=>'file','class'=>'form-control')) }}
+                                {{ Form::text('name','',array('id'=>'file','class'=>'form-control1')) }}
                             </div>
                         </div>
                         
                         <div class="form-group">
                             {{ Form::label('des','Descripcion',array('id'=>'','class'=>'col-md-4 control-label')) }}
                             <div class="col-md-6">
-                                {{ Form::text('description','',array('id'=>'file','class'=>'form-control')) }}
+                                {{ Form::text('description','',array('id'=>'file','class'=>'form-control1')) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                             {{ Form::label('price','Precio',array('id'=>'','class'=>'col-md-4 control-label')) }}
                             <div class="col-md-6">
-                                {{ Form::text('price','',array('id'=>'file','class'=>'form-control')) }}
+                                {{ Form::text('price','',array('id'=>'file','class'=>'form-control1')) }}
                             </div>
                         </div>
 
                         <div class="form-group">
                             {{ Form::label('fin','Precio final',array('id'=>'','class'=>'col-md-4 control-label')) }}
                             <div class="col-md-6">
-                                {{ Form::text('final','',array('id'=>'file','class'=>'form-control')) }}
+                                {{ Form::text('final','',array('id'=>'file','class'=>'form-control1')) }}
                             </div>
                         </div>
                         <div class="form-group">

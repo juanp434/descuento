@@ -46,8 +46,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/Aprovar-promociones/{id}', 'AdminController@PromotionAprove');
 	Route::get('/Eliminar-promociones/{id}', 'AdminController@PromotionDelete');
 
-	Route::get('/Denuncia-voucher', 'AdminController@DenunciasIndex');
-	Route::get('/Eliminar-voucher/{id}', 'AdminController@DenunciasDesestimar');
+	Route::get('/Denuncia-voucher', 'VoucherController@DenunciasIndex');
+	Route::get('/Eliminar-voucher/{id}', 'VoucherController@DenunciasDesestimar');
 
 
 	//VOUCHER

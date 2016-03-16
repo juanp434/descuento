@@ -12,7 +12,7 @@
         <table class="table">
         @foreach ($promotions as $promotion)
             <tr class="item">
-                <td>
+                <td align="center" width="35%" height="165px">
                 <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
 	                <div class="promo"><img src='{{$promotion->image}}' style="width: 200px; height: 100px;"></div>
 	                <div class="promo">Descripcion: {{$promotion->description}}</div>

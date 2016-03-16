@@ -31,4 +31,16 @@ class VoucherController extends Controller
 
     	return view('message', ['message'=>'Promocion comprada']);
     }
+
+    function DenunciasIndex(){
+        $vouchers = voucher::get();
+
+        return view('admin/lista-vouchers', ['vouchers'=>$vouchers]);
+    }
+
+    function DenunciasDesestimar($id){
+        $voucher = voucher::find($id);
+
+        return redirect('/lista-vouchers');
+    }
 }

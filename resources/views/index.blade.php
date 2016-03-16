@@ -12,13 +12,13 @@
         @foreach ($promotions as $promotion)
         	
             <tr class="item">
-        		<td>
+        		<td align="center" width="35%" height="165px">
                 <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
         			<span></span>
                     <div class="promo">
 	                <img src='{{$promotion->image}}' style="width: 200px; height: 100px;">
             		</div>
-            		<div class="promo">Descripcion: {{$promotion->description}}</div>
+            		<div class="promo2">Descripcion: {{$promotion->description}}</div>
         		</a>
                 </td>
             </tr>
