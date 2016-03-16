@@ -22,6 +22,7 @@ class CreateVouchersTable extends Migration
             $table->foreign('promotion_id')->references('id')->on('promotions');
             
             $table->string('denunciado')->default(0);
+            $table->string('descargo');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateLiquidationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+         Schema::create('liquidations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('last');
-            $table->string('dni');
-            $table->string('adress');
-            $table->string('cp');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('role');
-            $table->string('status');
+            $table->integer('promotion_id')->unsigned();
+            $table->foreign('promotion_id')->references('id')->on('promotions');
+            $table->string('estado');
+            $table->float('Monto');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -36,7 +31,7 @@ class CreateUsersTable extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('liquidations');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

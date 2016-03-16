@@ -35,7 +35,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Logo
+                    Descuentos
                 </a>
             </div>
 
@@ -43,15 +43,28 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav" id="menu">
                     <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="promociones">Promociones</a></li>
                     <li><a href="comercios">Comercios Adheridos</a></li>
-                    <li><a href="alta-comercio">Agrega tu comercio</a></li>
-                    <li><a href="alta-promocion">Agregar promocion</a></li>
+                    <li><a href="vouchers">Comprobantes</a></li>
+                    
+                    <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comercio<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-promocion"> Alta Promocion</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-voucher"> Alta Comprobante</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/liquidaciones"> Liquidaciones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/gastos-denunciados">Gastos denunciados</a></li>
+                        </ul>
+                    </li>
+                    
                     <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Admin<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Alta Usuarios</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Alta comercios</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Alta promociones</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/Denuncia-voucher">Denuncias Gastos</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Aprovar Usuarios</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Aprovar comercios</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Aprovar promociones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/vouchers">  Comprobantes</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-gastos-denunciados">Denuncias Gastos</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidacion">Generar Liquidaciones</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/prueba">Auth</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -60,8 +73,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a data-toggle="modal" data-target="#Modal">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -77,7 +90,40 @@
             </div>
         </div>
     </nav>
-
+    <!-- Modal -->
+        <div id="Modal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Login</h4>
+              </div>
+              <div class="modal-body1">
+                <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    {!! csrf_field() !!}
+                    <div class="login">
+                        <label class="control-label col-md-5">E-Mail Address</label>
+                        <input type="email" class="" name="email" value="{{ old('email') }}">
+                    </div>
+                    <div class="login">
+                        <label class="control-label col-md-5">Password</label>
+                        <input type="password" class="" name="password">
+                    </div>
+                    <div class="login text-center">
+                        <button type="submit" class="btn btn-primary">Login </button>
+                    </div>
+                    <div class="login text-center">
+                        <input type="checkbox" name="remember">Remember Me</input>
+                    </div>
+                    <div class="login text-center">
+                        <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                    </div>      
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>  
     @yield('content')
 
     <!-- JavaScripts -->

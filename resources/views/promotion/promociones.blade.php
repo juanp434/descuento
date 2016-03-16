@@ -1,28 +1,25 @@
 @extends('layouts.app')
 
 @section('title')
-    <title> Descuentos </title>
+    <title> Promociones </title>
 @endsection
 
 @section('content')
-<div class="content ">
-        <h1>Ultimos Comercios Adheridos</h1>
-        
-        @foreach ($promotions as $promotion)
 
-        	<div class="col-md-6">
-                <div class="item ">
-                    <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
-            			<span></span>
-                        <div class="promo">
-    	                <img src='{{$promotion->image}}' style="width: 200px; height: 100px;">
-                		</div>
-                		<div class="promo">Descripcion: {{$promotion->description}}</div>
-            		</a>
+<div class="content">
+      <h1>Promociones</h1>
+        
+       
+        @foreach ($promotions as $promotion)
+            <div class="col-md-6">
+                <div class="item">
+                <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
+	                <div class="promo"><img src='{{$promotion->image}}' style="width: 200px; height: 100px;"></div>
+	                <div class="promo">Descripcion: {{$promotion->description}}</div>
+                </a>
                 </div>
             </div>
-
-            <!-- Modal -->
+             <!-- Modal -->
         <div id="myModal{{$promotion->id}}" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <!-- Modal content-->
@@ -44,8 +41,10 @@
             </div>
           </div>
         </div>   
+        @endforeach
+        <div class="text-center">
+          {!! $promotions->render() !!}
+        </div>
 
-        @endforeach  
-        
 </div>
 @endsection

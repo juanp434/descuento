@@ -20,7 +20,7 @@ $factory->define(App\Models\User::class, function () {
         'cp'=>'',
         'email' => '',
         'password' => bcrypt('admin'),
-        'admin'=>''
+        'role'=>''
     ];
 });
 
@@ -39,6 +39,18 @@ $factory->define(App\Models\shop::class, function () {
     return [
         'name' => '',
         'email' => '',
-        'password' => ''
+        'password' => '',
+        'status' => '',
+        'image' => '',
+        'user_id' => '',
+    ];
+});
+
+$factory->define(App\Models\voucher::class, function(){
+    return [
+        'user_id' => '',
+        'promotion_id'=>'',
+        'denunciado'=>'',
+        'descargo'=>'',
     ];
 });

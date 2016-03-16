@@ -17,9 +17,9 @@ use Session;
 class CommerceController extends Controller
 {
     function index(){
-        $promotions = promotion::Paginate(4);
+        $comercios = shop::get();
 
-    	return view('comercio/comercios', ['promotions'=>$promotions]);
+        return view('comercio/comercios', ['comercios'=>$comercios]);
     }
 
     function alta(){
@@ -55,34 +55,5 @@ class CommerceController extends Controller
     	return view('message', ['message'=>$message]);
     }
 
-    function NewPromotion(){
-
-
-        return view('promotion/alta-promocion');
-    }
-
-    function StorePromotion(Request $req){
-
-        $promotion = new promotion();
-
-        $promotion->name = $req->name;
-        $promotion->description = $req->description;
-        $promotion->price = $req->price;
-        $promotion->final = $req->final;
-        
-        $file = $req->file('image');
-        
-        $destinationPath= 'images';
-        $extension= $file->getClientOriginalExtension();
-        $fileName = rand(11111,99999).'.'.$extension;
-        $req->file('image')->move($destinationPath, $fileName);
-        $promotion->image = '/images/'.$fileName;
-
-        $promotion->shop_id = '1';
-        $promotion->status = '0';
-
-        $promotion->save();
-        
-        return view('action', ['message'=>'Promocion agregada']);
-    }
+    
 }

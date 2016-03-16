@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
                 'cp'=>'7600',
                 'email' => 'Juan@admin.com',
                 'password' => bcrypt('admin'),
-                'admin'=>'1',
+                'role'=>'admin',
                 'status'=>'1'
             ]);
 
@@ -31,7 +31,41 @@ class UserTableSeeder extends Seeder
                 'cp'=>'7600',
                 'email' => 'pepe@admin.com',
                 'password' => bcrypt('admin'),
-                'admin' => '0',
+                'admin' => 'user',
+                'status' => '1'
+            ]);
+
+         factory(App\Models\User::class)->create([
+                'name' => 'luis',
+                'last'=>'Lopez',
+                'dni'=>'45666888',
+                'adress'=>'alem 88',
+                'cp'=>'7600',
+                'email' => 'luis@admin.com',
+                'password' => bcrypt('admin'),
+                'admin' => 'user',
+                'status' => '1'
+            ]);
+         factory(App\Models\User::class)->create([
+                'name' => 'lea',
+                'last'=>'Lopez',
+                'dni'=>'588992',
+                'adress'=>'alem 889',
+                'cp'=>'7600',
+                'email' => 'lea@admin.com',
+                'password' => bcrypt('admin'),
+                'admin' => 'shop',
+                'status' => '1'
+            ]);
+         factory(App\Models\User::class)->create([
+                'name' => 'nico',
+                'last'=>'Lopez',
+                'dni'=>'4892244',
+                'adress'=>'alem 888',
+                'cp'=>'7600',
+                'email' => 'lea@admin.com',
+                'password' => bcrypt('admin'),
+                'admin' => 'shop',
                 'status' => '1'
             ]);
     }

@@ -6,16 +6,18 @@
 <div class="content">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <h1>Registro Usuario</h1> 
+            
+            <div class="text-right"><a href="/nuevo-comercio">Registra tu Comercio</a></div>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
-
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control" name="name" required>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -29,7 +31,7 @@
                             <label class="col-md-4 control-label">Last Name</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="last" value="{{ old('last') }}">
+                                <input type="text" class="form-control" name="last" required>
 
                                 @if ($errors->has('last'))
                                     <span class="help-block">
@@ -43,7 +45,7 @@
                             <label class="col-md-4 control-label">Dni</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="dni" value="{{ old('dni') }}">
+                                <input type="text" class="form-control" name="dni" required>
 
                                 @if ($errors->has('dni'))
                                     <span class="help-block">
@@ -57,7 +59,7 @@
                             <label class="col-md-4 control-label">Adress</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="adress" value="{{ old('adress') }}">
+                                <input type="text" class="form-control" name="adress" required>
 
                                 @if ($errors->has('adress'))
                                     <span class="help-block">
@@ -71,7 +73,7 @@
                             <label class="col-md-4 control-label">Postal Code</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="cp" value="{{ old('cp') }}">
+                                <input type="text" class="form-control" name="cp" required>
 
                                 @if ($errors->has('cp'))
                                     <span class="help-block">
@@ -85,7 +87,7 @@
                             <label class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input type="email" class="form-control" name="email" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -101,7 +103,7 @@
                             <label class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
+                                <input type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -115,7 +117,7 @@
                             <label class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
+                                <input type="password" class="form-control" name="password_confirmation" required>
 
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
@@ -125,12 +127,11 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i>Register
-                                </button>
-                            </div>
+                        <div class="text-center"><input type="checkbox" required><label for="">Acepto Terminos</label></div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-btn fa-user"></i>Register
+                            </button>
                         </div>
                     </form>
                 </div>

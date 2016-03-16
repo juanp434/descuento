@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-<div class="container">
     <div class="content">
         <h1 class="home">Comercios</h1>
 
@@ -37,6 +36,5 @@
 			@endforeach
         </table>
         
-    </div>
 </div>  
 @endsection

@@ -4,6 +4,7 @@
 @endsection
 @section('content')
 <div class="content">
+    <h1>Alta promocion</h1>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
