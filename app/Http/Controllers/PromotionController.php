@@ -45,9 +45,10 @@ class PromotionController extends Controller
         $req->file('image')->move($destinationPath, $fileName);
         $promotion->image = '/images/'.$fileName;
 
-        $promotion->shop_id = '1';
+        $id = shop::where('user_id', Auth::user()->id)->value('id');
+        $promotion->shop_id = $id;
         $promotion->status = '0';
-
+        
         $promotion->save();
         
         return view('action', ['message'=>'Promocion solicitada']);

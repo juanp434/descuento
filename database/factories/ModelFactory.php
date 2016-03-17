@@ -39,7 +39,6 @@ $factory->define(App\Models\shop::class, function () {
     return [
         'name' => '',
         'email' => '',
-        'password' => '',
         'status' => '',
         'image' => '',
         'user_id' => '',

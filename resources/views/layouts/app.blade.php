@@ -18,6 +18,10 @@
         
     <link rel="stylesheet" href="css/style.css">
 
+     <!-- JavaScripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     
 </head>
 <body id="app-layout">
@@ -45,8 +49,11 @@
                     <li><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="promociones">Promociones</a></li>
                     <li><a href="comercios">Comercios Adheridos</a></li>
+                @if (Auth::check())
+                    @if (Auth::user()->role == 'user')
                     <li><a href="vouchers">Comprobantes</a></li>
-                    
+                    @endif
+                    @if (Auth::user()->role == 'shop' )
                     <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comercio<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-promocion"> Alta Promocion</a></li>
@@ -55,7 +62,8 @@
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/gastos-denunciados">Gastos denunciados</a></li>
                         </ul>
                     </li>
-                    
+                   @endif
+                   @if (Auth::user()->role == 'admin' || Auth::user()->role == 'admin')
                     <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Admin<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Aprovar Usuarios</a></li>
@@ -64,9 +72,10 @@
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/vouchers">  Comprobantes</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-gastos-denunciados">Denuncias Gastos</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidacion">Generar Liquidaciones</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/prueba">Auth</a></li>
                         </ul>
                     </li>
+                    @endif
+                @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -82,6 +91,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a>Rol: {{Auth::user()->role}}<a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -126,9 +136,7 @@
         </div>  
     @yield('content')
 
-    <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 <footer>Footer</footer>
 </body>

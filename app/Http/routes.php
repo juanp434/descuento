@@ -68,6 +68,8 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/alta-comercio', 'CommerceController@alta');
 	Route::post('/alta-comercio', 'CommerceController@store');
+
+	Route::get('/lista-vouchers', 'VoucherController@listaVouchers');
 	
 	Route::get('/lista-gastos-denunciados', 'VoucherController@gastos');	
 

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class liquidation extends Model
 {
     protected $fillable = [
-        'promotion_id', 'estado', 'Monto'
+        'promotion_id', 'estado', 'Monto', 'shop_id'
     ];
 }

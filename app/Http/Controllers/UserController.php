@@ -88,19 +88,28 @@ class UserController extends Controller
          $user->name = $Request->nombre;
          $user->last = $Request->apellido;
          $user->dni = $Request->dni;
-         $user->street = $Request->calle;
-         $user->number = $Request->numero;
+         $user->adress = $Request->adress;
          $user->cp = $Request->cp;
          $user->email = $Request->email;
          $user->password = $Request->pass;
-         $user->role = 'Shop';
+         $user->role = 'shop';
          $user->status = '0';
 
          $shop = new shop();
 
          $shop->name = $Request->name;
+         $shop->email = $Request->email;
          $shop->status = '0';
-         $shop->image = $Request->image;
+         $shop->user_id = $user->id;
+
+        $file = $Request->file('image');
+        
+        $destinationPath= 'images/shops/';
+        $extension= $file->getClientOriginalExtension();
+        $fileName = rand(11111,99999).'.'.$extension;
+        $Request->file('image')->move($destinationPath, $fileName);
+        $shop->image = '/images/shops/'.$fileName;
+        
 
          $users = User::get();
          $flag= false;

@@ -18,6 +18,9 @@ class CreateLiquidationTable extends Migration
             $table->foreign('promotion_id')->references('id')->on('promotions');
             $table->string('estado');
             $table->float('Monto');
+
+            $table->integer('shop_id')->unsigned();
+            $table->foreign('shop_id')->references('id')->on('shops');
             $table->rememberToken();
             $table->timestamps();
         });
