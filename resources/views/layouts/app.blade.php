@@ -21,9 +21,17 @@
      <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    
 </head>
+    
+<script>
+    $(function() {
+        $(".dropdown-toggle").hover(
+            function(){ $(this).addClass('open') },
+            function(){ $(this).removeClass('open') }
+        );
+    });
+</script>
+
 <body id="app-layout">
     <nav class="navbar navbar-default">
         <div class="container">
@@ -55,7 +63,7 @@
                     @endif
                     @if (Auth::user()->role == 'shop' )
                     <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comercio<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="menu-list">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-promocion"> Alta Promocion</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-voucher"> Alta Comprobante</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/liquidaciones"> Liquidaciones</a></li>
