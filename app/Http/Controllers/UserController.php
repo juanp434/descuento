@@ -11,14 +11,50 @@ use App\Models\User;
 use App\Models\promotion;
 use App\Models\shop;
 use App\Models\voucher;
+use App\Models\liquidation;
 use Auth;
 use Session;
 
 class UserController extends Controller
 {
     function index(){
+        if (Auth::check()) {
+            if (Auth::user()->role == "admin"){
+                return redirect('admin');
+            }elseif (Auth::user()->role == "shop") {
+                return redirect('shop');
+            }
+        }
         $promotions = promotion::orderBy('created_at','name')->limit(4)->get();
-    	return view('index', ['promotions'=>$promotions]);
+        return view('index', ['promotions'=>$promotions]);
+    }
+
+    function indexAdmin(){
+        $users = user::where('role','user')->count();
+        $shops = user::where('role','shop')->count();
+        $liquidations = liquidation::where('estado','PENDIENTE')->get();
+        $monto=0;
+        foreach ($liquidations as $liquidation) {
+            $monto += $liquidation->Monto;
+        }
+
+        return view('index-admin', ['users'=>$users, 'shops'=>$shops, 'monto'=>$monto]);
+    }
+
+    function indexShop(){
+
+        $users = user::join()
+                        ->get();
+        
+        $liquidations = liquidation::where('estado','PENDIENTE')->get();
+        $saldo=0;
+        foreach ($liquidations as $liquidation) {
+            $saldo += $liquidation->Monto;
+        }
+
+        $ranking = promotion::limit(3)->get();
+
+        return view('index-shop', ['users'=>$users, 'saldo'=>$saldo, 'ranking'=>$ranking]);
     }
 
     function register(){

@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use App\Http\Controllers\Auth\Request;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -28,7 +30,19 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+     protected $redirectTo = '/';
+     
+     protected function authenticated()
+    {
+        if (Auth::user()->role == "user") {
+            return redirect()->intended('user');
+        }elseif (Auth::user()->role == "shop") {
+            return redirect()->intended('shop');
+        }else{
+            return redirect()->intended('admin');
+        }        
+    }
+
 
     /**
      * Create a new authentication controller instance.
@@ -56,6 +70,8 @@ class AuthController extends Controller
             'cp' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'role' => 'required|max:255',
+            'status' => 'required|max:255'
         ]);
     }
 
@@ -71,6 +87,9 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'role' => $data['role']
         ]);
     }
+
+    
 }

@@ -23,14 +23,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
     
-<script>
-    $(function() {
-        $(".dropdown-toggle").hover(
-            function(){ $(this).addClass('open') },
-            function(){ $(this).removeClass('open') }
-        );
-    });
-</script>
 
 <body id="app-layout">
     <nav class="navbar navbar-default">
@@ -90,8 +82,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a data-toggle="modal" data-target="#Modal">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
+                        <li><a data-toggle="modal" data-target="#Modal"><span class="glyphicon glyphicon-user"> Login</a></li>
+                        <li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-log-in"> Registrarse</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

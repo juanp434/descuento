@@ -17,11 +17,14 @@ use App\Http\Requests;
 |
 */
 Route::group(['middleware' => ['web']], function () {
-	//VOUCHER == COMPROBANTE
-
-	//INVITE
-
+	
 	Route::get('/', 'UserController@index');
+	Route::get('admin', 'UserController@indexAdmin');
+	Route::get('shop', 'UserController@indexShop');
+
+	//VOUCHER == COMPROBANTE
+	//INVITE
+	
 	Route::get('/comercios', 'CommerceController@index');
 	Route::get('/promociones', 'PromotionController@index');
 
@@ -31,10 +34,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/nuevo-comercio', 'UserController@storeComercio');
 	Route::get('/login', 'UserController@login');
 	Route::post('/login', 'UserController@enter');
-
-	Route::get('/prueba', function(){
-		var_dump(auth::user());
-	});
 	
 	//USER
 	Route::get('/vouchers', 'VoucherController@lista');
