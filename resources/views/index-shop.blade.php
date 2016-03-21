@@ -16,10 +16,10 @@
             <div class="col-md-6 col-md-offset-1">
                 <label>Top de productos más adquiridos:</label>
             </div>
-
+            
             @foreach ($ranking as $rank)
             <div class="col-md-12 col-md-offset-4">
-                <div>Rank {{$rank->id}}</div>
+                <div>Rank {{$ini++}}</div>
                 <div class="item col-md-4">
                         <div class="promo">
                         <img src='{{$rank->image}}' style="width: 200px; height: 100px;">

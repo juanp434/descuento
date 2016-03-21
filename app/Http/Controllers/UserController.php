@@ -83,13 +83,18 @@ class UserController extends Controller
         }
 
         $user= Auth::user()->id;
-        $shop = shop::where('user_id', $user);
+        $shop = shop::where('user_id', $user)->get();
 
-        var_dump($shop);
         
-        $ranking = promotion::where('shop_id', 2)->limit(3)->get();
+        $ranking = DB::table('promotions')
+                    ->join('vouchers','vouchers.promotion_id','=','promotions.id')
+                    ->select('*',DB::raw('count(promotion_id) as voucher_count'))
+                    ->groupby('promotion_id')
+                    ->where('shop_id', $shop[0]->id)
+                    ->orderBy('voucher_count','desc')
+                    ->get();
 
-        //return view('index-shop', ['users'=>$count, 'saldo'=>$saldo, 'ranking'=>$ranking]);
+        return view('index-shop', ['users'=>$count, 'saldo'=>$saldo, 'ranking'=>$ranking,'ini'=>'1']);
     }
 
     function register(){
