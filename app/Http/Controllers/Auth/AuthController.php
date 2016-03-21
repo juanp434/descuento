@@ -35,7 +35,7 @@ class AuthController extends Controller
      protected function authenticated()
     {
         if (Auth::user()->role == "user") {
-            return redirect()->intended('user');
+            return redirect()->intended('/');
         }elseif (Auth::user()->role == "shop") {
             return redirect()->intended('shop');
         }else{

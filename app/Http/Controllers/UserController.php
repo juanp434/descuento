@@ -14,6 +14,8 @@ use App\Models\voucher;
 use App\Models\liquidation;
 use Auth;
 use Session;
+use DateTime;
+use DB;
 
 class UserController extends Controller
 {
@@ -42,19 +44,52 @@ class UserController extends Controller
     }
 
     function indexShop(){
-
-        $users = user::join()
-                        ->get();
-        
-        $liquidations = liquidation::where('estado','PENDIENTE')->get();
-        $saldo=0;
-        foreach ($liquidations as $liquidation) {
-            $saldo += $liquidation->Monto;
+        $vouchers = voucher::get();
+        $array = array();
+        foreach ($vouchers as $voucher) {
+            $start = DATE_FORMAT($voucher->created_at,"Y-m-d H:i:s");
+            $end = date("Y-m-d H:i:s");
+            $d_start = new DateTime($start);
+            $d_end = new DateTime($end);
+            $diff = $d_start->diff($d_end);
+            
+            if ($diff->format('%d') <= 7){//Agregar user
+                if (isset($array[$voucher->user_id]))
+                    $array[$voucher->user_id][] =  $voucher->user_id;
+                else
+                    $array[$voucher->user_id] =  array($voucher->user_id);
+            }
+        }
+        $count=0;
+        foreach ($array as $key ) {
+           $count++;
         }
 
-        $ranking = promotion::limit(3)->get();
+        $promotions = DB::table('vouchers')
+                        ->join('promotions', 'vouchers.promotion_id', '=', 'promotions.id')
+                        ->groupby('promotions.id')
+                        ->get();
+        $vouchers = voucher::get();
+        
+        $saldo=0;
+        foreach ($promotions as $promotion) {
+            $cont=0;
+            foreach ($vouchers as $voucher) {
+               if ($voucher->promotion_id == $promotion->id) {
+                   $cont+= $promotion->final;
+               }
+            }
+            $saldo+=$cont;
+        }
 
-        return view('index-shop', ['users'=>$users, 'saldo'=>$saldo, 'ranking'=>$ranking]);
+        $user= Auth::user()->id;
+        $shop = shop::where('user_id', $user);
+
+        var_dump($shop);
+        
+        $ranking = promotion::where('shop_id', 2)->limit(3)->get();
+
+        //return view('index-shop', ['users'=>$count, 'saldo'=>$saldo, 'ranking'=>$ranking]);
     }
 
     function register(){
@@ -72,9 +107,6 @@ class UserController extends Controller
         $user = User::where('email',$email)->get();
 
         var_dump($email, $pass, $user);
-
-
-
         //return redirect('/');
     }
 
