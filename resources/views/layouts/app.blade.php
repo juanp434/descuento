@@ -49,10 +49,13 @@
                     <li><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="promociones">Promociones</a></li>
                     <li><a href="comercios">Comercios Adheridos</a></li>
+
                 @if (Auth::check())
+                   
                     @if (Auth::user()->role == 'user')
                     <li><a href="vouchers">Comprobantes</a></li>
                     @endif
+                   
                     @if (Auth::user()->role == 'shop' )
                     <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comercio<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="menu-list">
