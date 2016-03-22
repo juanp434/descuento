@@ -11,8 +11,10 @@
             <div class="text-right"><a href="/nuevo-comercio">Registra tu Comercio</a></div>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="/register">
                         {!! csrf_field() !!}
+                        <input type="hidden" name="role" value="user"></input>
+                        <input type="hidden" name="status" value="0"></input>
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Name</label>
 

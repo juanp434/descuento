@@ -70,7 +70,9 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/lista-vouchers', 'VoucherController@listaVouchers');
 	
-	Route::get('/lista-gastos-denunciados', 'VoucherController@gastos');	
+	Route::get('/lista-gastos-denunciados', 'VoucherController@gastos');
+	Route::get('/estimar-voucher/{id}', 'VoucherController@estimar');	
+	Route::get('/desestimar-voucher/{id}', 'VoucherController@desestimar');			
 
 	Route::get('/generar-liquidacion', 'VoucherController@listaLiquidacion');
 	Route::post('/generar-liquidacion', 'VoucherController@altaLiquidacion');

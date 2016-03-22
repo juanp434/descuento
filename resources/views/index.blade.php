@@ -7,10 +7,11 @@
 @section('content')
 <div class="content ">
         <h1>Ultimos Comercios Adheridos</h1>
+        
+        <div class="wrap1">
         @foreach ($promotions as $promotion)
-            <div class="col-md-6">
-                @if($promotion->id % 2 != 0)<div class="col-md-6"></div> @endif
-                    <div class="item col-md-6">
+            <div class="" style="width: 49%; display: inline-block;">
+                    <div class="item">
                         <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
                 			<span></span>
                             <div class="promo">
@@ -19,7 +20,7 @@
                     		<div class="promo">Descripcion: {{$promotion->description}}</div>
                 		</a>
                     </div>
-               @if($promotion->id % 2 == 0)<div class="col-md-6"></div> @endif
+               
             </div>
 
 
@@ -48,6 +49,7 @@
         </div>   
 
         @endforeach 
+        </div>
 
 </div>
 @endsection

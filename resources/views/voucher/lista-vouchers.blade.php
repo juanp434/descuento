@@ -24,10 +24,11 @@
         		<td>{{$voucher->user_id}} </td>
         		<td>{{$voucher->promotion_id}} </td>
         		<td>@if ($voucher->denunciado == 0)No @else Si @endif </td>
-        		<td>@if ($voucher->descargo)Si @else No @endif</td>
+        		<td>@if ($voucher->descargo) {{$voucher->descargo}} @else No @endif</td>
                 <td>
-                    @if ($voucher->denunciado == 0)
-        			<a href="/Denuncia-voucher/{{$voucher->id}}">Denunciar</a>
+                    @if ($voucher->denunciado == 1)
+        			<a href="/estimar-voucher/{{$voucher->id}}">Estimar descargo</a> <!--comercio tiene razon denunciado 2 descargo estimado-->
+                    <a href="/desestimar-voucher/{{$voucher->id}}">Desestimar descargo</a><!--usuario tiene razon denunciado 2 descargo desestimado-->
                     
                     @endif
         		</td>

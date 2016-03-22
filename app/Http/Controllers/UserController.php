@@ -27,7 +27,7 @@ class UserController extends Controller
                 return redirect('shop');
             }
         }
-        $promotions = promotion::orderBy('created_at','name')->limit(4)->get();
+        $promotions = promotion::where('status',1)->orderBy('created_at','name')->limit(4)->get();
         return view('index', ['promotions'=>$promotions]);
     }
 
@@ -119,35 +119,18 @@ class UserController extends Controller
 
     	 $user = new User();
 
-    	 $user->name = $Request->nombre;
-    	 $user->last = $Request->apellido;
+    	 $user->name = $Request->name;
+    	 $user->last = $Request->last;
     	 $user->dni = $Request->dni;
-    	 $user->street = $Request->calle;
-    	 $user->number = $Request->numero;
+    	 $user->street = $Request->adress;
     	 $user->cp = $Request->cp;
     	 $user->email = $Request->email;
-    	 $user->password = $Request->pass;
-         $user->role = 'User';
+    	 $user->password = $Request->password;
+         $user->role = 'user';
          $user->status = '0';
-
-         $users = User::get();
-         $flag= false;
-         foreach ($users as $u) {
-            if ($u->email == $user->email){
-                $flag=true;
-            }
-         }
-
-         if ($flag){
-            $message= 'Mail ya usado, utilice otro mail';
-         }
-         else{
-            $user->save();
-            $message= 'Usuario Creado'; 
-         }
-
-        return view('action', ['message' =>$message]);
+         $user->save();
          
+        return view('action', ['message' =>'Usuario Creado']);
     }
 
     function Comercio(){
@@ -158,22 +141,24 @@ class UserController extends Controller
     function storeComercio(Request $Request){
          $user = new User();
 
-         $user->name = $Request->nombre;
-         $user->last = $Request->apellido;
+         $user->name = $Request->name;
+         $user->last = $Request->last;
          $user->dni = $Request->dni;
          $user->adress = $Request->adress;
          $user->cp = $Request->cp;
          $user->email = $Request->email;
-         $user->password = $Request->pass;
+         $user->password = $Request->password;
          $user->role = 'shop';
          $user->status = '0';
+         $user->save();
 
+         $id = user::where('email', $user->email)->get();
          $shop = new shop();
 
          $shop->name = $Request->name;
          $shop->email = $Request->email;
          $shop->status = '0';
-         $shop->user_id = $user->id;
+         $shop->user_id = $id->id;
 
         $file = $Request->file('image');
         
@@ -182,24 +167,9 @@ class UserController extends Controller
         $fileName = rand(11111,99999).'.'.$extension;
         $Request->file('image')->move($destinationPath, $fileName);
         $shop->image = '/images/shops/'.$fileName;
-        
-
-         $users = User::get();
-         $flag= false;
-         foreach ($users as $u) {
-            if ($u->email == $user->email){
-                $flag=true;
-            }
-         }
-
-         if ($flag){
-            $message= 'Mail ya usado, utilice otro mail';
-         }
-         else{
-            $user->save();
-            $shop->save();
-            $message= 'Comercio Creado'; 
-         }
-        return view('action', ['message' =>$message]);
+         
+        $shop->save();
+         
+        return view('action', ['message' =>'Comercio Creado']);
     }
 }

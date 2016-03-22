@@ -10,8 +10,10 @@
 
     <div class="panel panel-default col-md-6 col-md-offset-3">
         <div class="panel-body">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+            <form class="form-horizontal" role="form" method="POST" action="/nuevo-comercio" enctype="multipart/form-data">
                 {!! csrf_field() !!}
+                <input type="hidden" name="role" value="shop"></input>
+                <input type="hidden" name="status" value="0"></input>
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     <label class="col-md-4 control-label">Name</label>
 
@@ -82,6 +84,11 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label for="image" class="control-label col-md-4" style="display: inline-block;">Imagen</label>
+                    <input type="file" id="image" name="image" style="display: inline-block; padding-left: 15px; vertical-align: -webkit-baseline-middle;" required>
+                </div>
+                
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <label class="col-md-4 control-label">E-Mail Address</label>
 
@@ -95,8 +102,6 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="form-group"><label for="image" class="control-label col-md-4" style="display: inline-block;">Imagen</label><input type="file" id="image" name="image" style="display: inline-block; padding-left: 15px; vertical-align: -webkit-baseline-middle;" required></div>
 
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <label class="col-md-4 control-label">Password</label>

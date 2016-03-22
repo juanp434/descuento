@@ -17,7 +17,7 @@ use Session;
 class PromotionController extends Controller
 {
     function index(){
-        $promotions = promotion::Paginate(4);
+        $promotions = promotion::where('status',1)->Paginate(4);
 
     	return view('promotion/promociones', ['promotions'=>$promotions]);
     }

@@ -17,7 +17,7 @@ use Session;
 class CommerceController extends Controller
 {
     function index(){
-        $comercios = shop::get();
+        $comercios = shop::where('status',1)->get();
 
         return view('comercio/comercios', ['comercios'=>$comercios]);
     }

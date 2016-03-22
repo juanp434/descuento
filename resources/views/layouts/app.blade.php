@@ -72,7 +72,7 @@
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Aprovar Usuarios</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Aprovar comercios</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Aprovar promociones</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/vouchers">  Comprobantes</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-vouchers">  Comprobantes</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-gastos-denunciados">Denuncias Gastos</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidacion">Generar Liquidaciones</a></li>
                         </ul>

@@ -59,12 +59,24 @@ class VoucherController extends Controller
 
     function listaLiquidacion(){
 
-        $promotions = DB::table('vouchers')
-                        ->join('promotions', 'vouchers.promotion_id', '=', 'promotions.id')
+        $promotions = DB::table('promotions')
+                        ->join('vouchers', 'vouchers.promotion_id', '=', 'promotions.id')
                         ->groupby('promotions.id')
                         ->get();
         
-        return view('liquidaciones/nueva-liquidacion', ['promotions'=>$promotions]);
+        $liquidations = liquidation::get();
+        $array = array();
+        foreach ($liquidations as $liquidation) {
+            foreach ($promotions as $promotion) {
+                if ($promotion->id != $liquidation->promotion_id) {
+                     array_push($array, $promotion);
+                   }
+                }
+            }
+        if (!isset($liquidations[0])){
+            $array= $promotions;
+        }
+        return view('liquidaciones/nueva-liquidacion', ['promotions'=>$array]);
     }
 
     function altaLiquidacion(Request $req){
@@ -72,17 +84,19 @@ class VoucherController extends Controller
         $id = $req->select;
 
         $promotion = promotion::find($id);
-        $vouchers = voucher::where('promotion_id', $promotion->id)->get();
+        $vouchers = voucher::where('promotion_id', $promotion->id)->where('denunciado',0)->get();
 
         $liquidacion = new liquidation;
         $liquidacion->promotion_id = $promotion->id;
         $liquidacion->estado = 'PENDIENTE';
-        $cont=0;
+        $cont=1;
         foreach ($vouchers as $voucher) {
                 $cont++;   
                 }        
 
         $liquidacion->Monto = $cont*$promotion->final;
+        $liquidacion->shop_id = $promotion->shop_id;
+        
         $liquidacion->save();
 
         return view('action', ['message'=>'Liquidacion generada']);
@@ -106,15 +120,30 @@ class VoucherController extends Controller
     }
 
     function gastos(){
-        $vouchers = voucher::where('denunciado',1)->get();
+        $vouchers = voucher::where('denunciado','<>',0)->where('descargo','<>','')->get();
         return view('voucher/lista-vouchers', ['vouchers'=>$vouchers, 'head'=>'Gastos Denunciados']);
     }
+    function estimar($id){
+        $voucher = voucher::find($id);
+        $voucher->denunciado = 2;
+        $voucher->descargo= 'estimado';
+        $voucher->update();
+        return redirect('/lista-gastos-denunciados');
+    }
+    function desestimar($id){
+        $voucher = voucher::find($id);
+        $voucher->denunciado = 2;
+        $voucher->descargo= 'desestimado';
+        return redirect('/lista-gastos-denunciados');
+    }
+
+
 
     function GastosDenuncias(){//Traer solo las que pertencen al comercio
         $i= Auth::user()->id;
         $id = shop::where('user_id', $i)->value('id');
 
-        $promotions = promotion::where('shop_id', $id);
+        $promotions = promotion::where('shop_id', $id)->get();
 
         $vouchers = voucher::where('denunciado',1)->where('descargo','')->get();
         $array = array();
@@ -124,6 +153,7 @@ class VoucherController extends Controller
                     array_push($array, $voucher);
             }
         }
+        
        return view('voucher/nuevo-descargo',['vouchers'=>$array]);
     }
 
