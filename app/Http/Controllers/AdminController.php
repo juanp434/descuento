@@ -17,7 +17,7 @@ use Session;
 class AdminController extends Controller
 {
     function UserIndex(){
-        $users = User::where('status',0)->get();
+        $users = User::where('status',0)->where('role','user')->get();
         //pasar los que tinen status 0 solamente
 
     	return view('admin/lista-usuarios', ['users'=>$users]);
@@ -42,11 +42,13 @@ class AdminController extends Controller
 
     function ShopAprove($id){
         $shop = shop::find($id);
-
         $shop->status = '1';
         $shop->update();
 
-        
+        $user = user::find($shop->user_id);
+        $user->status = '1';
+        $user->update();
+
         return redirect('/lista-comercios');
     }
 

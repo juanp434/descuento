@@ -125,7 +125,7 @@ class UserController extends Controller
     	 $user->street = $Request->adress;
     	 $user->cp = $Request->cp;
     	 $user->email = $Request->email;
-    	 $user->password = $Request->password;
+    	 $user->password = bcrypt($Request->password);
          $user->role = 'user';
          $user->status = '0';
          $user->save();
@@ -147,18 +147,19 @@ class UserController extends Controller
          $user->adress = $Request->adress;
          $user->cp = $Request->cp;
          $user->email = $Request->email;
-         $user->password = $Request->password;
+         $user->password = bcrypt($Request->password);
          $user->role = 'shop';
          $user->status = '0';
          $user->save();
 
-         $id = user::where('email', $user->email)->get();
-         $shop = new shop();
+         $id = user::max('id');
 
+         $shop = new shop();
+         
          $shop->name = $Request->name;
          $shop->email = $Request->email;
          $shop->status = '0';
-         $shop->user_id = $id->id;
+         $shop->user_id = $id;
 
         $file = $Request->file('image');
         
