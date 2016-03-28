@@ -18,9 +18,9 @@
             </div>
             
             @foreach ($ranking as $rank)
-            <div class="col-md-12 col-md-offset-4">
-                <div>Rank {{$ini++}}</div>
-                <div class="item col-md-4">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-offset-5">Rank {{$ini++}}</div>
+                <div class="item">
                         <div class="promo">
                         <img src='{{$rank->image}}' style="width: 200px; height: 100px;">
                         </div>

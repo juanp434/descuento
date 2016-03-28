@@ -13,11 +13,28 @@ use App\Models\shop;
 use App\Models\voucher;
 use Auth;
 use Session;
+use DateTime;
 
 class PromotionController extends Controller
 {
     function index(){
-        $promotions = promotion::where('status',1)->Paginate(4);
+        $promotions = promotion::where('status',1)->paginate(4);
+        foreach ($promotions as $promotion) {
+           $Start = date('Y-m-d');
+           $End  = $promotion->expDate;
+           
+           if ($End > $Start) {
+             $dStart = new DateTime($Start);
+             $dEnd = new DateTime($End);
+             $dDiff = $dStart->diff($dEnd);
+             $promotion->days = $dDiff->days;
+           }
+           else{
+              $promotion->days = '0';
+           }
+           $time = strtotime($promotion->expDate);
+           $promotion->expDate = date('d-m-Y',$time); 
+        }
 
     	return view('promotion/promociones', ['promotions'=>$promotions]);
     }
@@ -36,6 +53,7 @@ class PromotionController extends Controller
         $promotion->description = $req->description;
         $promotion->price = $req->price;
         $promotion->final = $req->final;
+        $promotion->expDate = $req->myDate;
         
         $file = $req->file('image');
         
@@ -48,6 +66,7 @@ class PromotionController extends Controller
         $id = shop::where('user_id', Auth::user()->id)->value('id');
         $promotion->shop_id = $id;
         $promotion->status = '0';
+        
         
         $promotion->save();
         
