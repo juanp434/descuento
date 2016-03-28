@@ -141,6 +141,24 @@
 
    
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-<footer>Footer</footer>
+<footer>
+<h4>Descuentos</h4>
+<div class="footer-col">
+    <div><a href="/">Home</a></div>
+    <div><a href="/comercios">Comercios Adheridos</a></div>
+    <div><a href="/promociones">Promociones</a></div>
+</div>
+<div class="footer-col">
+    <div><a href="/">Terminos</a></div>
+    <div><a href="/">Condiciones</a></div>
+    <div><a href="/">Sobre Nosotros</a></div>
+</div>
+<div class="footer-col">
+    <div><a data-toggle="modal" data-target="#Modal">Login</a></div>
+    <div><a href="/register">Registrate</a></div>
+    <div><a href="/nuevo-comercio">Registra tu comercio</a></div>
+</div>
+<div class="text-left">© 2016 Descuentos, Inc. Todos los derechos reservados.</div>
+</footer>
 </body>
 </html>

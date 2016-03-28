@@ -22,8 +22,22 @@ footer{
     color: white;
     text-align: center;
     clear: both;
-    padding: 20px 0px;
+    padding: 5px 0px;
     margin-top: 10px;
+}
+.footer-col{
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  border-right: 1px solid white;
+  margin: 0px 0px;
+  padding: 0px 25px;
+  vertical-align: top;
+  text-align: left;
+}
+.footer-col a{
+color: white;
+text-decoration: none;
 }
 h1{
     text-align: center;
