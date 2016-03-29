@@ -26,10 +26,12 @@
         		<td>@if ($voucher->denunciado == 0)No @else Si @endif </td>
         		<td>@if ($voucher->descargo) {{$voucher->descargo}} @else No @endif</td>
                 <td>
-                    @if ($voucher->denunciado == 1)
-        			<a href="/estimar-voucher/{{$voucher->id}}">Estimar descargo</a> <!--comercio tiene razon denunciado 2 descargo estimado-->
-                    <a href="/desestimar-voucher/{{$voucher->id}}">Desestimar descargo</a><!--usuario tiene razon denunciado 2 descargo desestimado-->
-                    
+                    @if ($voucher->denunciado == 1 && Auth::user()->role == 'admin' && $voucher->descargo != '' && $head == 'Gastos Denunciados')
+            			<a href="/estimar-voucher/{{$voucher->id}}">Estimar descargo</a> <!--comercio tiene razon denunciado 2 descargo estimado-->
+                        <a href="/desestimar-voucher/{{$voucher->id}}">Desestimar descargo</a><!--usuario tiene razon denunciado 2 descargo desestimado-->
+                    @endif
+                    @if (Auth::user()->role == 'user' && $voucher->denunciado == 0)
+                        <a href="/Denuncia-voucher/{{$voucher->id}}">Denunciar</a>
                     @endif
         		</td>
         	</tr>

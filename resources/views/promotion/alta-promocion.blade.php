@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Descipcion</label>
                             <div class="col-md-6">
-                                <input type="text" name="descripcion" class="form-control1"></input>
+                                <input type="text" name="description" class="form-control1"></input>
                             </div>
                         </div>
 
@@ -42,25 +42,22 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Imagen</label>
                             <div class="col-md-6">
-                                {{ Form::file('image','',array('id'=>'file','class'=>'col-md-4 control-label')) }}
+                                <input type="file" class="col-md-12" name="image" id="image"></input>
                             </div>
                         </div>
                         <div class="form-group">
-                            {{ Form::label('fecha','Fecha Expiracion',array('id'=>'','class'=>'col-md-4 control-label')) }}
+                            <label class="col-md-4 control-label">Fecha Expiracion</label>
                             <div class="col-md-8">
-                            {{ Form::date('myDate','',array('id'=>'myDate', 'class'=>'col-md-4 control-label', 'min'=> 'date("Y-m-d")' ))}}
+                             <input type="date" min="{{date('Y-m-d')}}" value="{{date('Y-m-d')}}" name="myDate" class="col-md-4"></input>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                             {{ Form::submit('Guardar',array('id'=>'','class'=>'btn btn-default')) }}
+                             <button class="btn btn-default" type="submit">Guardar</button>
                             </div>
                         </div>
 
                    </form>
-                </div>
-                <div>
-                    <input type="date" min="{{date('Y-m-d')}}" value="{{date('Y-m-d')}}"></input>
                 </div>
             </div>
         </div>

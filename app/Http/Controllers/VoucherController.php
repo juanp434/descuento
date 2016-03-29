@@ -163,7 +163,7 @@ class VoucherController extends Controller
        $voucher->descargo = $req->text;
        $voucher->update();
 
-       return view('action', ['message'=>'Descargo realizado']);
+       return redirect('/gastos-denunciados');
     }
 
     function DenunciasDesestimar($id){
