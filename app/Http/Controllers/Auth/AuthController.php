@@ -90,5 +90,17 @@ class AuthController extends Controller
         ]);
     }
 
+    public function postRegister(Request $request)
+    {
+        $validator = $this->validator($request->all());
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+        
+        return redirect($this->redirectPath());
+    }
+
     
 }
