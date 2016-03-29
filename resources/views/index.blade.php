@@ -19,6 +19,11 @@
                     		</div>
                     		<div class="promo">Descripcion: {{$promotion->description}}</div>
                 		</a>
+                        @if ($promotion->days > 0)
+                            <div class="promo">Quedan {{$promotion->days}} dias</div>
+                        @else
+                            <div class="promo">Finalizado</div>
+                        @endif
                     </div>
                
             </div>
@@ -42,6 +47,9 @@
                     <p style="text-decoration: line-through;">Precio lista: ${{$promotion->price}}</p>
                     <p>Precio: ${{$promotion->final}}</p>
                     <p>Ahorras: ${{$promotion->price - $promotion->final}}</p>
+                </div>
+                <div>
+                  <p>Finaliza el: {{$promotion->expDate}}</p>
                 </div>
               </div>
             </div>

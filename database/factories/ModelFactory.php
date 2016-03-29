@@ -20,7 +20,8 @@ $factory->define(App\Models\User::class, function () {
         'cp'=>'',
         'email' => '',
         'password' => bcrypt('admin'),
-        'role'=>''
+        'role'=>'',
+        'status'=>''
     ];
 });
 
@@ -31,7 +32,9 @@ $factory->define(App\Models\promotion::class, function () {
         'price' => '',
         'final' => '',
         'image' => '',
-        'shop_id' => ''
+        'shop_id' => '',
+        'status' => '',
+        'expDate' => ''
     ];
 });
 

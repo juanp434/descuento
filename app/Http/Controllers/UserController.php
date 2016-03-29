@@ -28,6 +28,21 @@ class UserController extends Controller
             }
         }
         $promotions = promotion::where('status',1)->orderBy('created_at','name')->limit(4)->get();
+        foreach ($promotions as $promotion) {
+           $Start = date('Y-m-d');
+           $End  = $promotion->expDate;
+           if ($End > $Start) {
+             $dStart = new DateTime($Start);
+             $dEnd = new DateTime($End);
+             $dDiff = $dStart->diff($dEnd);
+             $promotion->days = $dDiff->days;
+           }
+           else{
+              $promotion->days = '0';
+           }
+           $time = strtotime($promotion->expDate);
+           $promotion->expDate = date('d-m-Y',$time); 
+        }
         return view('index', ['promotions'=>$promotions]);
     }
 

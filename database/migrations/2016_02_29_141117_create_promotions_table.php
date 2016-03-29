@@ -19,6 +19,7 @@ class CreatePromotionsTable extends Migration
             $table->float('price');
             $table->float('final');
             $table->string('image');
+            $table->date('expDate');
             $table->integer('shop_id')->unsigned();
             $table->foreign('shop_id')->references('id')->on('shops');
             $table->string('status');

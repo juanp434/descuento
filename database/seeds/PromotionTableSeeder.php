@@ -17,6 +17,7 @@ class PromotionTableSeeder extends Seeder
                 'price' => '100',
                 'final' => '80',
                 'image' => '/images/adidas.jpg',
+                'expDate' => '2016-04-15',
                 'shop_id' => '1',
                 'status' => '1'
             ]);
@@ -26,6 +27,7 @@ class PromotionTableSeeder extends Seeder
                 'price' => '100',
                 'final' => '77',
                 'image' => '/images/nike.jpg',
+                'expDate' => '2016-08-15',
                 'shop_id' => '1',
                 'status' => '1'
             ]);
@@ -35,6 +37,7 @@ class PromotionTableSeeder extends Seeder
                 'price' => '140',
                 'final' => '70',
                 'image' => '/images/puma.gif',
+                'expDate' => '2016-10-15',
                 'shop_id' => '1',
                 'status' => '1'
             ]);
@@ -44,6 +47,7 @@ class PromotionTableSeeder extends Seeder
                 'price' => '200',
                 'final' => '120',
                 'image' => '/images/Babolat.jpg',
+                'expDate' => '2016-07-15',
                 'shop_id' => '2',
                 'status' => '1'
             ]);
@@ -53,6 +57,7 @@ class PromotionTableSeeder extends Seeder
                 'price' => '100',
                 'final' => '60',
                 'image' => '/images/mcdonalds.jpg',
+                'expDate' => '2016-06-15',
                 'shop_id' => '2',
                 'status' => '1'
             ]);
@@ -62,6 +67,7 @@ class PromotionTableSeeder extends Seeder
                 'price' => '250',
                 'final' => '130',
                 'image' => '/images/reebok.jpg',
+                'expDate' => '2016-05-15',
                 'shop_id' => '2',
                 'status' => '1'
             ]);

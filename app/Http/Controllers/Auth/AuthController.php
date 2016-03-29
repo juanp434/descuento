@@ -42,8 +42,6 @@ class AuthController extends Controller
             return redirect()->intended('admin');
         }        
     }
-
-
     /**
      * Create a new authentication controller instance.
      *
@@ -65,6 +63,7 @@ class AuthController extends Controller
         return Validator::make($data, [
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:4',
+            'dni' => 'unique:users',
             'role' => 'required'
         ]);
     }

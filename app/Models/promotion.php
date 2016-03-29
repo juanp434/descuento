@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class promotion extends Model
 {
     protected $fillable = [
-        'name', 'email', 'password', 'description', 'price', 'final', 'image', 'status'
+        'name', 'email', 'password', 'description', 'price', 'final', 'image', 'status', 'expDate'
     ];
 
     public function shops()
