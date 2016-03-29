@@ -16,8 +16,6 @@
         	<th>Denunciado</th>
             <th>Descargo</th>
             <th>Acciones</th>
-        	
-            
             @foreach($vouchers as $voucher)
         	<tr>
         		<td>{{$voucher->id}} </td>

@@ -15,28 +15,28 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Nombre</label>
                             <div class="col-md-6">
-                                <input type="text" name="name" class="form-control1"></input>
+                                <input type="text" name="name" class="form-control1" required=""></input>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label class="col-md-4 control-label">Descipcion</label>
                             <div class="col-md-6">
-                                <input type="text" name="description" class="form-control1"></input>
+                                <input type="text" name="description" class="form-control1" required=""></input>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">Precio</label>
                             <div class="col-md-6">
-                                <input type="text" name="price" class="form-control1"></input>
+                                <input type="text" name="price" class="form-control1" required=""></input>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">Precio Final</label>
                             <div class="col-md-6">
-                                <input type="text" name="final" class="form-control1"></input>
+                                <input type="text" name="final" class="form-control1" required=""></input>
                             </div>
                         </div>
                         <div class="form-group">
@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Fecha Expiracion</label>
                             <div class="col-md-8">
-                             <input type="date" min="{{date('Y-m-d')}}" value="{{date('Y-m-d')}}" name="myDate" class="col-md-4"></input>
+                             <input type="date" min="{{date('Y-m-d')}}" value="{{date('Y-m-d')}}" name="myDate" class="col-md-4" required=""></input>
                             </div>
                         </div>
                         <div class="form-group">

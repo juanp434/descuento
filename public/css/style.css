@@ -105,6 +105,12 @@ h1{
     margin: 15px auto;
     width: 80%;
 }
+.item a{
+  color: #6666FF;
+}
+.item a:hover{
+  color: #6699CC;
+}
 
 .table{
     text-align: center;
