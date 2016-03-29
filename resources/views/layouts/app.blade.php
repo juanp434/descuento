@@ -26,81 +26,79 @@
 
 <body id="app-layout">
     <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
+        <div class="navbar-header">
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Descuentos
-                </a>
-            </div>
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="{{ url('/') }}">
+                Descuentos
+            </a>
+        </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav" id="menu">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="promociones">Promociones</a></li>
-                    <li><a href="comercios">Comercios Adheridos</a></li>
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav" id="menu">
+                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="promociones">Promociones</a></li>
+                <li><a href="comercios">Comercios Adheridos</a></li>
 
-                @if (Auth::check())
-                   
-                    @if (Auth::user()->role == 'user')
-                    <li><a href="vouchers">Comprobantes</a></li>
-                    @endif
-                   
-                    @if (Auth::user()->role == 'shop' )
-                    <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comercio<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="menu-list">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-promocion"> Alta Promocion</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-voucher"> Alta Comprobante</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/liquidaciones"> Liquidaciones</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/gastos-denunciados">Gastos denunciados</a></li>
-                        </ul>
-                    </li>
-                   @endif
-                   @if (Auth::user()->role == 'admin' || Auth::user()->role == 'admin')
-                    <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Admin<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Aprovar Usuarios</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Aprovar comercios</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Aprovar promociones</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-vouchers">  Comprobantes</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-gastos-denunciados">Denuncias Gastos</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidacion">Generar Liquidaciones</a></li>
-                        </ul>
-                    </li>
-                    @endif
+            @if (Auth::check())
+               
+                @if (Auth::user()->role == 'user')
+                <li><a href="vouchers">Comprobantes</a></li>
                 @endif
-                </ul>
+               
+                @if (Auth::user()->role == 'shop' )
+                <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comercio<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="menu-list">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-promocion"> Alta Promocion</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-voucher"> Alta Comprobante</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/liquidaciones"> Liquidaciones</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/gastos-denunciados">Gastos denunciados</a></li>
+                    </ul>
+                </li>
+               @endif
+               @if (Auth::user()->role == 'admin' || Auth::user()->role == 'admin')
+                <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Admin<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Aprovar Usuarios</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Aprovar comercios</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Aprovar promociones</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-vouchers">  Comprobantes</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-gastos-denunciados">Denuncias Gastos</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidacion">Generar Liquidaciones</a></li>
+                    </ul>
+                </li>
+                @endif
+            @endif
+            </ul>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a data-toggle="modal" data-target="#Modal"><span class="glyphicon glyphicon-user"> Login</a></li>
-                        <li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-log-in"> Registrarse</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                @if (Auth::guest())
+                    <li><a data-toggle="modal" data-target="#Modal" href="#modal"><span class="glyphicon glyphicon-user"> Login</a></li>
+                    <li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-log-in"> Registrarse</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a>Rol: {{Auth::user()->role}}<a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
-            </div>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a>Rol: {{Auth::user()->role}}<a></li>
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                @endif
+            </ul>
         </div>
     </nav>
     <!-- Modal -->
@@ -142,23 +140,23 @@
    
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 <footer>
-<h4>Descuentos</h4>
-<div class="footer-col">
-    <div><a href="/">Home</a></div>
-    <div><a href="/comercios">Comercios Adheridos</a></div>
-    <div><a href="/promociones">Promociones</a></div>
-</div>
-<div class="footer-col">
-    <div><a href="/">Terminos</a></div>
-    <div><a href="/">Condiciones</a></div>
-    <div><a href="/">Sobre Nosotros</a></div>
-</div>
-<div class="footer-col">
-    <div><a data-toggle="modal" data-target="#Modal">Login</a></div>
-    <div><a href="/register">Registrate</a></div>
-    <div><a href="/nuevo-comercio">Registra tu comercio</a></div>
-</div>
-<div class="text-left">© 2016 Descuentos, Inc. Todos los derechos reservados.</div>
+    <h4>Descuentos</h4>
+    <div class="footer-col">
+        <div><a href="/">Home</a></div>
+        <div><a href="/comercios">Comercios Adheridos</a></div>
+        <div><a href="/promociones">Promociones</a></div>
+    </div>
+    <div class="footer-col">
+        <div><a href="/">Terminos</a></div>
+        <div><a href="/">Condiciones</a></div>
+        <div><a href="/">Sobre Nosotros</a></div>
+    </div>
+    <div class="footer-col">
+        <div><a data-toggle="modal" data-target="#Modal" href="#modal">Login</a></div>
+        <div><a href="/register">Registrate</a></div>
+        <div><a href="/nuevo-comercio">Registra tu comercio</a></div>
+    </div>
+    <div class="text-left">© 2016 Descuentos, Inc. Todos los derechos reservados.</div>
 </footer>
 </body>
 </html>
