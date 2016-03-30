@@ -41,7 +41,7 @@
                 <div>
                     <p style="text-decoration: line-through;">Precio lista: ${{$promotion->price}}</p>
                     <p>Precio: ${{$promotion->final}}</p>
-                    <p>Ahorras: ${{$promotion->price - $promotion->final}}</p>
+                    <p>Ahorras: ${{$promotion->price - $promotion->final}} ({{(1-$promotion->final/$promotion->price)*100}}%)</p>
 
                 </div>
                 <div>

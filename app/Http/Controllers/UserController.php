@@ -47,6 +47,7 @@ class UserController extends Controller
     }
 
     function indexAdmin(){
+        
         $users = user::where('role','user')->count();
         $shops = user::where('role','shop')->count();
         $liquidations = liquidation::where('estado','PENDIENTE')->get();

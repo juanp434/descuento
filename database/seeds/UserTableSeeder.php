@@ -26,7 +26,7 @@ class UserTableSeeder extends Seeder
          factory(App\Models\User::class)->create([
                 'name' => 'pepe',
                 'last'=>'Lopez',
-                'dni'=>'45666888',
+                'dni'=>'45666788',
                 'adress'=>'alem 88',
                 'cp'=>'7600',
                 'email' => 'pepe@admin.com',
@@ -38,7 +38,7 @@ class UserTableSeeder extends Seeder
          factory(App\Models\User::class)->create([
                 'name' => 'luis',
                 'last'=>'Lopez',
-                'dni'=>'45666888',
+                'dni'=>'45666688',
                 'adress'=>'alem 88',
                 'cp'=>'7600',
                 'email' => 'luis@admin.com',

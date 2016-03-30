@@ -99,11 +99,11 @@ h1{
 .item{
     min-height: 170px;
     text-align: center;
-    border: 1px solid black;
     margin-bottom: 15px;
+    border-radius: 4px;
     background-color: white;
     margin: 15px auto;
-    width: 80%;
+    width: 70%;
 }
 .item a{
   color: #6666FF;
@@ -133,6 +133,13 @@ h1{
   width: 70%;
   margin:0px auto;
 }
+.wrap2{
+  width: 50%;
+  margin: 0px auto;
+  background-color: white;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
 
 .wrap.login {
   max-width: 500px;
@@ -154,6 +161,7 @@ h1{
   border-bottom: 1px solid black;
   border-radius: 0;
   width: 50%;
+  box-shadow: none;
 }
 .input-group.inline{
     display: inline-block;
@@ -194,6 +202,7 @@ h1{
 .list-admin{
   margin:auto;
   background: white;
+
 }
 .list-admin th, .list-admin tr td{
   border: 1px solid black;

@@ -8,7 +8,7 @@
 <div class="content">
     <h1>Registro Comercio</h1>
 
-    <div class="panel panel-default col-md-6 col-md-offset-3">
+    <div class="wrap2">
         <div class="panel-body">
             <form class="form-horizontal" role="form" method="POST" action="/nuevo-comercio" enctype="multipart/form-data">
                 {!! csrf_field() !!}
@@ -85,8 +85,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="image" class="control-label col-md-4" style="display: inline-block;">Imagen</label>
-                    <input type="file" id="image" name="image" style="display: inline-block; padding-left: 15px; vertical-align: -webkit-baseline-middle;" required>
+                    <label for="image" class="control-label col-md-4">Imagen</label>
+                    <input type="file" id="image" name="image" class="col-md-8" required>
                 </div>
                 
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

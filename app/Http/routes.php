@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -77,6 +76,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/generar-liquidacion', 'VoucherController@listaLiquidacion');
 	Route::post('/generar-liquidacion', 'VoucherController@altaLiquidacion');
 
+	Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+
 });	
 
 /*
@@ -90,8 +93,3 @@ Route::group(['middleware' => ['web']], function () {
 | state, CSRF protection, and more.
 |
 */
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
-});

@@ -116,12 +116,12 @@
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                     {!! csrf_field() !!}
                     <div class="login">
-                        <label class="control-label col-md-5">E-Mail Address</label>
-                        <input type="email" class="" name="email" value="{{ old('email') }}">
+                        <label class="control-label col-md-4">E-Mail Address</label>
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                     </div>
                     <div class="login">
-                        <label class="control-label col-md-5">Password</label>
-                        <input type="password" class="" name="password">
+                        <label class="control-label col-md-4">Password</label>
+                        <input type="password" class="form-control" name="password">
                     </div>
                     <div class="login text-center">
                         <button type="submit" class="btn btn-primary">Login </button>
