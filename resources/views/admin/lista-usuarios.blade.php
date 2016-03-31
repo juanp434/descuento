@@ -27,13 +27,13 @@
         		<td>{{$user->adress}}</td>
         		<td>{{$user->cp}}</td>
         		<td>{{$user->email}}</td>
-        		<td>{{$user->status}}</td>
+        		<td>@if($user->status == 0) Pendiente @else Activo @endif</td>
         		<td>
         		@if ($user->status == 0)
         			<a href="/Aprovar-usuarios/{{$user->id}}">Aprobar</a>
         		@endif
         		@if ($user->admin == 0)
-        			<a href="/Eliminar-usuarios/{{$user->id}}">Eliminar</a>
+        			<a href="/Eliminar-usuarios/{{$user->id}}" onclick="return confirm('Desea eliminar el usuario?');">Eliminar</a>
 				@endif
         		</td>
         	</tr>

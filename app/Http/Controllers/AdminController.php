@@ -17,7 +17,9 @@ use Session;
 class AdminController extends Controller
 {
     function UserIndex(){
-        $users = User::where('status',0)->where('role','user')->get();
+        $users = User::where('role','user')
+                       ->orderBy('status')
+                       ->get();
         //pasar los que tinen status 0 solamente
 
     	return view('admin/lista-usuarios', ['users'=>$users]);
@@ -32,9 +34,15 @@ class AdminController extends Controller
         
         return redirect('/lista-usuarios');
     }
+    function UserDelete($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/lista-usuarios');
+    }
 
     function ShopIndex(){
-        $shops = shop::where('status',0)->get();
+        $shops = shop::orderBy('status')
+                       ->get();
         //pasar los que tinen status 0 solamente
 
     	return view('admin/lista-comercios', ['shops'=>$shops]);
@@ -51,9 +59,20 @@ class AdminController extends Controller
 
         return redirect('/lista-comercios');
     }
+    function ShopDelete($id){
+        $user = User::find($id);
+
+        $shop = shop::where('user_id',$id)->get();
+        $shop->delete();
+
+        $user->delete();
+        return redirect('/lista-usuarios');
+    }
+
 
     function PromotionIndex(){
-        $promotions = promotion::where('status',0)->get();
+        $promotions = promotion::orderBy('status')
+                                 ->get();
         //pasar los que tinen status 0 solamente
 
     	return view('admin/lista-promociones', ['promotions'=>$promotions]);
@@ -67,5 +86,10 @@ class AdminController extends Controller
 
         
         return redirect('/lista-promociones');
+    }
+    function PromotionDelete($id){
+        $promotion = promotion::find($id);
+        $promotion->delete();
+        return redirect('/lista-usuarios');
     }
 }

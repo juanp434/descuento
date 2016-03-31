@@ -206,7 +206,7 @@ h1{
 }
 .list-admin th, .list-admin tr td{
   border: 1px solid black;
-  padding: 5px;
+  padding: 5px 15px;
   text-align: center;
 }
 .list-admin a{

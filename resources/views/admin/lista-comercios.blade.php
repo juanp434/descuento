@@ -19,12 +19,12 @@
         		<td>{{$shop->id}}</td>
         		<td>{{$shop->name}}</td>
         		<td>{{$shop->email}}</td>
-        		<td>{{$shop->status}}</td>
+        		<td>@if($shop->status == 0) Pendiente @else Activo @endif</td>
         		<td>
                 @if ($shop->status == 0) 
                 <a href="/Aprovar-comercios/{{$shop->id}}">Aprobar</a>
                 @endif
-                <a href="/Eliminar-comercios/{{$shop->id}}">Eliminar</a>
+                <a href="/Eliminar-comercios/{{$shop->id}}" onclick="return confirm('Desea eliminar el comercio?');">Eliminar</a>
                 </td>
         	</tr>
 			@endforeach

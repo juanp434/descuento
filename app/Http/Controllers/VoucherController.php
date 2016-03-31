@@ -53,7 +53,7 @@ class VoucherController extends Controller
     }
 
     function listaVouchers(){
-        $vouchers = voucher::get();
+        $vouchers = voucher::orderBy('user_id')->get();
         return view('voucher/lista-vouchers', ['vouchers'=>$vouchers, 'head'=>'Comprobantes']);
     }
 
@@ -91,8 +91,11 @@ class VoucherController extends Controller
         $liquidacion->estado = 'PENDIENTE';
         $cont=1;
         foreach ($vouchers as $voucher) {
-                $cont++;   
-                }        
+            if ($voucher->denunciado == 0) {
+                $cont++;
+            }
+                
+        }        
 
         $liquidacion->Monto = $cont*$promotion->final;
         $liquidacion->shop_id = $promotion->shop_id;
@@ -120,7 +123,7 @@ class VoucherController extends Controller
     }
 
     function gastos(){
-        $vouchers = voucher::where('denunciado','<>',0)->where('descargo','<>','')->get();
+        $vouchers = voucher::where('denunciado','<>',0)->where('descargo','<>','')->orderBy('user_id')->get();
         return view('voucher/lista-vouchers', ['vouchers'=>$vouchers, 'head'=>'Gastos Denunciados']);
     }
     function estimar($id){

@@ -25,12 +25,12 @@
                 <td>{{$promotion->price}}</td>
                 <td>{{$promotion->final}}</td>
                 <td>{{$promotion->shop_id}}</td>
-        		<td>{{$promotion->status}}</td>
+        		<td>@if($promotion->status == 0) Pendiente @else Activo @endif</td>
         		<td>
                 @if ($promotion->status == 0)
                 <a href="/Aprovar-promociones/{{$promotion->id}}">Aprobar</a>
                 @endif
-                <a href="/Eliminar-promociones/{{$promotion->id}}">Eliminar</a>
+                <a href="/Eliminar-promociones/{{$promotion->id}}" onclick="return confirm('Desea eliminar la promocion?');">Eliminar</a>
                 </td>
         	</tr>
 			@endforeach

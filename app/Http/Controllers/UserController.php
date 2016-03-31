@@ -172,8 +172,8 @@ class UserController extends Controller
 
          $shop = new shop();
          
-         $shop->name = $Request->name;
-         $shop->email = $Request->email;
+         $shop->name = $Request->namec;
+         $shop->email = $Request->emailc;
          $shop->status = '0';
          $shop->user_id = $id;
 

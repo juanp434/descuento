@@ -56,12 +56,15 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/lista-usuarios', 'AdminController@UserIndex');
 	Route::get('/Aprovar-usuarios/{id}', 'AdminController@UserAprove');
+	Route::get('/Eliminar-usuarios/{id}', 'AdminController@UserDelete');
 
 	Route::get('/lista-comercios', 'AdminController@ShopIndex');
 	Route::get('/Aprovar-comercios/{id}', 'AdminController@ShopAprove');
+	Route::get('/Eliminar-comercios/{id}', 'AdminController@ShopDelete');
 
 	Route::get('/lista-promociones', 'AdminController@PromotionIndex');
 	Route::get('/Aprovar-promociones/{id}', 'AdminController@PromotionAprove');
+	Route::get('/Eliminar-promociones/{id}', 'AdminController@PromotionDelete');
 
 
 	Route::get('/alta-comercio', 'CommerceController@alta');

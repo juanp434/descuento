@@ -14,8 +14,9 @@
                 {!! csrf_field() !!}
                 <input type="hidden" name="role" value="shop"></input>
                 <input type="hidden" name="status" value="0"></input>
+                <h3 class="text-center">Datos del Dueño</h3>
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    <label class="col-md-4 control-label">Name</label>
+                    <label class="col-md-4 control-label">Nombre</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="name" required>
@@ -29,7 +30,7 @@
                 </div>
                 
                 <div class="form-group{{ $errors->has('last') ? ' has-error' : '' }}">
-                    <label class="col-md-4 control-label">Last Name</label>
+                    <label class="col-md-4 control-label">Apellido</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="last" required>
@@ -57,7 +58,7 @@
                 </div>
 
                 <div class="form-group{{ $errors->has('adress') ? ' has-error' : '' }}">
-                    <label class="col-md-4 control-label">Adress</label>
+                    <label class="col-md-4 control-label">Direccion</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="adress" required>
@@ -71,7 +72,7 @@
                 </div>
 
                 <div class="form-group{{ $errors->has('cp') ? ' has-error' : '' }}">
-                    <label class="col-md-4 control-label">Postal Code</label>
+                    <label class="col-md-4 control-label">Codigo Postal</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="cp" required>
@@ -130,6 +131,34 @@
                         @endif
                     </div>
                 </div>
+                <h3 class="text-center">Datos del Comercio</h3>
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                    <label class="col-md-4 control-label">Nombre Comercio</label>
+
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="namec" required>
+
+                        @if ($errors->has('name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <label class="col-md-4 control-label">E-Mail Comercio</label>
+
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" name="emailc" required>
+
+                        @if ($errors->has('email'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
 
                 <div class="text-center"><input type="checkbox" required><label for="">Acepto Terminos</label></div>
 
