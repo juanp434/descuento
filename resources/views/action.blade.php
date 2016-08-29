@@ -11,7 +11,7 @@
         	<label>Su solicitud sera confirmada dentro de las 24hs</label>
         </div>
 		<div class="text-center">
-			<a href="/">Volver</a>
+			<a href="{{ url('/') }}">Volver</a>
 		</div>
 
         

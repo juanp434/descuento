@@ -18,7 +18,7 @@ use DateTime;
 class PromotionController extends Controller
 {
     function index(){
-        $promotions = promotion::where('status',1)->paginate(4);
+        $promotions = promotion::where('status',1)->orderBy('name')->paginate(4);
         foreach ($promotions as $promotion) {
            $Start = date('Y-m-d');
            $End  = $promotion->expDate;
@@ -61,7 +61,7 @@ class PromotionController extends Controller
         $extension= $file->getClientOriginalExtension();
         $fileName = rand(11111,99999).'.'.$extension;
         $req->file('image')->move($destinationPath, $fileName);
-        $promotion->image = '/images/'.$fileName;
+        $promotion->image = 'images/'.$fileName;
 
         $id = shop::where('user_id', Auth::user()->id)->value('id');
         $promotion->shop_id = $id;

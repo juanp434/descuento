@@ -9,7 +9,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form action="/alta-promocion" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                    <form action="alta-promocion" class="form-horizontal" method="POST" enctype="multipart/form-data">
                         {!! csrf_field() !!}
 
                         <div class="form-group">

@@ -22,13 +22,13 @@
         		<td>@if($shop->status == 0) Pendiente @else Activo @endif</td>
         		<td>
                 @if ($shop->status == 0) 
-                <a href="/Aprovar-comercios/{{$shop->id}}">Aprobar</a>
+                <a href="Aprovar-comercios/{{$shop->id}}">Aprobar</a>
                 @endif
-                <a href="/Eliminar-comercios/{{$shop->id}}" onclick="return confirm('Desea eliminar el comercio?');">Eliminar</a>
+                <a href="{{ url('Eliminar-comercios/').'/'.$shop->id }}" onclick="return confirm('Desea eliminar el comercio?');">Eliminar</a>
                 </td>
         	</tr>
 			@endforeach
         </table>
-        <div class="text-center"><a href="/alta-comercio">Alta Comercio</a></div>
+        <div class="text-center"><a href="{{ url('alta-comercio') }}">Alta Comercio</a></div>
 </div>  
 @endsection

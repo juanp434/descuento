@@ -10,7 +10,7 @@
         <h1 class="home">Generar Liquidacion</h1>
 	<div class="wrap comercio">
 		<label>Seleccione Promocion a liquidar</label> 
-			<form action="/generar-liquidacion" method="POST" >
+			<form action="generar-liquidacion" method="POST" >
 			{!! csrf_field() !!}
 				<div style="margin: 15px 0px;">
 					<select name="select" required>

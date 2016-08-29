@@ -15,7 +15,7 @@
                         <a data-toggle="modal" data-target="#myModal{{$promotion->id}}">
                 			<span></span>
                             <div class="promo">
-        	                <img src='{{$promotion->image}}' style="width: 200px; height: 100px;">
+        	                <img src='{{$promotion->image}}' style="width: 200px; height: 100px; padding-top: 5px;">
                     		</div>
                     		<div class="promo">Descripcion: {{$promotion->description}}</div>
                 		</a>

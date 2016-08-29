@@ -53,7 +53,7 @@ class CommerceController extends Controller
         $extension= $file->getClientOriginalExtension();
         $fileName = rand(11111,99999).'.'.$extension;
         $Request->file('image')->move($destinationPath, $fileName);
-        $shop->image = '/images/shops/'.$fileName;
+        $shop->image = 'images/shops/'.$fileName;
     	
     	$users = User::get();
          $flag= false;

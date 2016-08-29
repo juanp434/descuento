@@ -27,7 +27,7 @@ class UserController extends Controller
                 return redirect('shop');
             }
         }
-        $promotions = promotion::where('status',1)->orderBy('created_at','name')->limit(4)->get();
+        $promotions = promotion::where('status',1)->orderBy('created_at', 'desc')->limit(4)->get();
         foreach ($promotions as $promotion) {
            $Start = date('Y-m-d');
            $End  = $promotion->expDate;
@@ -183,7 +183,7 @@ class UserController extends Controller
         $extension= $file->getClientOriginalExtension();
         $fileName = rand(11111,99999).'.'.$extension;
         $Request->file('image')->move($destinationPath, $fileName);
-        $shop->image = '/images/shops/'.$fileName;
+        $shop->image = 'images/shops/'.$fileName;
          
         $shop->save();
          

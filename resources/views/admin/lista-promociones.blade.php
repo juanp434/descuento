@@ -28,9 +28,9 @@
         		<td>@if($promotion->status == 0) Pendiente @else Activo @endif</td>
         		<td>
                 @if ($promotion->status == 0)
-                <a href="/Aprovar-promociones/{{$promotion->id}}">Aprobar</a>
+                <a href="Aprovar-promociones/{{$promotion->id}}">Aprobar</a>
                 @endif
-                <a href="/Eliminar-promociones/{{$promotion->id}}" onclick="return confirm('Desea eliminar la promocion?');">Eliminar</a>
+                <a href="Eliminar-promociones/{{$promotion->id}}" onclick="return confirm('Desea eliminar la promocion?');">Eliminar</a>
                 </td>
         	</tr>
 			@endforeach

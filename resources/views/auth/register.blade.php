@@ -8,7 +8,7 @@
         <div class="col-md-6 col-md-offset-3">
             <h1>Registro Usuario</h1> 
             
-            <div class="text-right"><a href="/nuevo-comercio">Registra tu Comercio</a></div>
+            <div class="text-right"><a href="nuevo-comercio">Registra tu Comercio</a></div>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="/register">

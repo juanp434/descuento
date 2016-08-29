@@ -41,7 +41,7 @@
                     <h4 class="modal-title text-center">Ingrese su Descargo</h4>
                   </div>
                   <div class="modal-body text-center">
-                    <form action="/gastos-denunciados/{{$voucher->id}}" method="POST">
+                    <form action="gastos-denunciados/{{$voucher->id}}" method="POST">
                         {!! csrf_field() !!}
                         <div>
                             <label style="vertical-align: top; padding-right: 10px;">Descargo:</label>

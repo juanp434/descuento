@@ -27,6 +27,7 @@
     
 
 <body id="app-layout">
+    <header><img src="images/logo.png" style="padding: 5px; width: 192px;"></header>
     <nav class="navbar navbar-default">
         <div class="navbar-header">
 
@@ -48,8 +49,8 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav" id="menu">
                 <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="promociones">Promociones</a></li>
-                <li><a href="comercios">Comercios Adheridos</a></li>
+                <li><a href="{{ url('promociones') }}">Promociones</a></li>
+                <li><a href="{{ url('comercios') }}">Comercios Adheridos</a></li>
 
             @if (Auth::check())
                
@@ -60,22 +61,22 @@
                 @if (Auth::user()->role == 'shop' )
                 <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comercio<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="menu-list">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-promocion"> Alta Promocion</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/alta-voucher"> Alta Comprobante</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/liquidaciones"> Liquidaciones</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/gastos-denunciados">Gastos denunciados</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('alta-promocion') }}"> Alta Promocion</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('alta-voucher') }}"> Alta Comprobante</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('liquidaciones') }}"> Liquidaciones</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('gastos-denunciados') }}">Gastos denunciados</a></li>
                     </ul>
                 </li>
                @endif
                @if (Auth::user()->role == 'admin' || Auth::user()->role == 'admin')
                 <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Admin<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-usuarios">Aprovar Usuarios</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-comercios">Aprovar comercios</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-promociones">Aprovar promociones</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-vouchers">  Comprobantes</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/lista-gastos-denunciados">Denuncias Gastos</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/generar-liquidacion">Generar Liquidaciones</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-usuarios') }}">Aprovar Usuarios</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-comercios') }}">Aprovar comercios</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-promociones') }}">Aprovar promociones</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-vouchers') }}">  Comprobantes</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-gastos-denunciados') }}">Denuncias Gastos</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('generar-liquidacion') }}">Generar Liquidaciones</a></li>
                     </ul>
                 </li>
                 @endif
@@ -145,19 +146,19 @@
 <footer>
     <h4>Descuentos</h4>
     <div class="footer-col">
-        <div><a href="/">Home</a></div>
-        <div><a href="/comercios">Comercios Adheridos</a></div>
-        <div><a href="/promociones">Promociones</a></div>
+        <div><a href="{{ url('/') }}">Home</a></div>
+        <div><a href="{{ url('comercios') }}">Comercios Adheridos</a></div>
+        <div><a href="{{ url('promociones') }}">Promociones</a></div>
     </div>
     <div class="footer-col">
-        <div><a href="/">Terminos</a></div>
-        <div><a href="/">Condiciones</a></div>
-        <div><a href="/">Sobre Nosotros</a></div>
+        <div><a href="">Terminos</a></div>
+        <div><a href="">Condiciones</a></div>
+        <div><a href="">Sobre Nosotros</a></div>
     </div>
     <div class="footer-col">
         <div><a data-toggle="modal" data-target="#Modal" href="#modal">Login</a></div>
-        <div><a href="/register">Registrate</a></div>
-        <div><a href="/nuevo-comercio">Registra tu comercio</a></div>
+        <div><a href="{{ url('register') }}">Registrate</a></div>
+        <div><a href="{{ url('nuevo-comercio') }}">Registra tu comercio</a></div>
     </div>
     <div class="text-left">© 2016 Descuentos, Inc. Todos los derechos reservados.</div>
 </footer>

@@ -10,7 +10,7 @@
 
     <div class="wrap2">
         <div class="panel-body">
-            <form class="form-horizontal" role="form" method="POST" action="/nuevo-comercio" enctype="multipart/form-data">
+            <form class="form-horizontal" role="form" method="POST" action="nuevo-comercio" enctype="multipart/form-data">
                 {!! csrf_field() !!}
                 <input type="hidden" name="role" value="shop"></input>
                 <input type="hidden" name="status" value="0"></input>

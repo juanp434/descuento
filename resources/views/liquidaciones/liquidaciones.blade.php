@@ -23,7 +23,7 @@
         		<td>{{$liquidation->Monto}}</td>
         		<td>
                 @if ($liquidation->estado == 'PENDIENTE')
-                <a href="/liquidaciones/{{$liquidation->id}}">Verificar</a>
+                <a href="liquidaciones/{{$liquidation->id}}">Verificar</a>
                 @endif
                 </td>
         	</tr>
