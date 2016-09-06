@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="content ">
-        <h1>Ultimos Comercios Adheridos</h1>
+        <h1>Ultimas promociones Adheridas</h1>
         
         <div class="wrap1">
         @foreach ($promotions as $promotion)

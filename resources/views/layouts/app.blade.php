@@ -71,9 +71,9 @@
                @if (Auth::user()->role == 'admin' || Auth::user()->role == 'admin')
                 <li><a class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Admin<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-usuarios') }}">Aprovar Usuarios</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-comercios') }}">Aprovar comercios</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-promociones') }}">Aprovar promociones</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-usuarios') }}">Aprobar Usuarios</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-comercios') }}">Aprobar comercios</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-promociones') }}">Aprobar promociones</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-vouchers') }}">  Comprobantes</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('lista-gastos-denunciados') }}">Denuncias Gastos</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url('generar-liquidacion') }}">Generar Liquidaciones</a></li>

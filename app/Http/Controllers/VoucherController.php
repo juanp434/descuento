@@ -19,8 +19,9 @@ class VoucherController extends Controller
 {
     function index(){
         $users= User::where('role', 'user')->get();
-        $promotions = promotion::get();
-
+        $id = Shop::where('user_id', Auth::user()->id)->first()->id;
+        $promotions = promotion::where('shop_id', $id)->get();
+        //dd($promotions);
     	return view('voucher/nuevo-voucher', ['users'=>$users, 'promotions'=>$promotions]);
     }
 
@@ -128,15 +129,16 @@ class VoucherController extends Controller
     }
     function estimar($id){
         $voucher = voucher::find($id);
-        $voucher->denunciado = 2;
+        $voucher->denunciado = 1;
         $voucher->descargo= 'estimado';
         $voucher->update();
         return redirect('/lista-gastos-denunciados');
     }
     function desestimar($id){
         $voucher = voucher::find($id);
-        $voucher->denunciado = 2;
+        $voucher->denunciado = 0;
         $voucher->descargo= 'desestimado';
+        $voucher->update();
         return redirect('/lista-gastos-denunciados');
     }
 

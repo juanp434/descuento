@@ -18,8 +18,7 @@ use App\Http\Requests;
 Route::group(['middleware' => ['web']], function () {
 	
 	Route::get('/', 'UserController@index');
-	Route::get('admin', 'UserController@indexAdmin');
-	Route::get('shop', 'UserController@indexShop');
+	
 
 	//VOUCHER == COMPROBANTE
 	//INVITE
@@ -35,54 +34,59 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/login', 'UserController@enter');
 	
 	//USER
-	Route::get('/vouchers', 'VoucherController@lista');
-	Route::get('/Denuncia-voucher/{id}', 'VoucherController@DenunciasIndex');
-	
+	Route::group(['middleware' => ['UserAuth']], function () {
+
+		Route::get('/vouchers', 'VoucherController@lista');
+		Route::get('/Denuncia-voucher/{id}', 'VoucherController@DenunciasIndex');
+	});
 	//Comercios
-	
-	Route::get('/alta-promocion', 'PromotionController@NewPromotion');
-	Route::post('/alta-promocion', 'PromotionController@StorePromotion');
+	Route::group(['middleware' => ['ShopAuth']], function () {
 
-	Route::get('/alta-voucher', 'VoucherController@index');
-	Route::post('/alta-voucher', 'VoucherController@store');
+		Route::get('shop', 'UserController@indexShop');
 
-	Route::get('/liquidaciones', 'VoucherController@liquidaciones');
-	Route::get('/liquidaciones/{id}', 'VoucherController@verificarLiquidacion');
+		Route::get('/alta-promocion', 'PromotionController@NewPromotion');
+		Route::post('/alta-promocion', 'PromotionController@StorePromotion');
 
-	Route::get('/gastos-denunciados', 'VoucherController@GastosDenuncias');
-	Route::post('/gastos-denunciados/{id}', 'VoucherController@GastosDescargo');		
+		Route::get('/alta-voucher', 'VoucherController@index');
+		Route::post('/alta-voucher', 'VoucherController@store');
 
+		Route::get('/liquidaciones', 'VoucherController@liquidaciones');
+		Route::get('/liquidaciones/{id}', 'VoucherController@verificarLiquidacion');
+
+		Route::get('/gastos-denunciados', 'VoucherController@GastosDenuncias');
+		Route::post('/gastos-denunciados/{id}', 'VoucherController@GastosDescargo');		
+	});
 	//ADMIN
+	Route::group(['middleware' => ['AdminAuth']], function () {
 
-	Route::get('/lista-usuarios', 'AdminController@UserIndex');
-	Route::get('/Aprovar-usuarios/{id}', 'AdminController@UserAprove');
-	Route::get('/Eliminar-usuarios/{id}', 'AdminController@UserDelete');
+		Route::get('admin', 'UserController@indexAdmin');
 
-	Route::get('/lista-comercios', 'AdminController@ShopIndex');
-	Route::get('/Aprovar-comercios/{id}', 'AdminController@ShopAprove');
-	Route::get('/Eliminar-comercios/{id}', 'AdminController@ShopDelete');
+		Route::get('/lista-usuarios', 'AdminController@UserIndex');
+		Route::get('/Aprovar-usuarios/{id}', 'AdminController@UserAprove');
+		Route::get('/Eliminar-usuarios/{id}', 'AdminController@UserDelete');
 
-	Route::get('/lista-promociones', 'AdminController@PromotionIndex');
-	Route::get('/Aprovar-promociones/{id}', 'AdminController@PromotionAprove');
-	Route::get('/Eliminar-promociones/{id}', 'AdminController@PromotionDelete');
+		Route::get('/lista-comercios', 'AdminController@ShopIndex');
+		Route::get('/Aprovar-comercios/{id}', 'AdminController@ShopAprove');
+		Route::get('/Eliminar-comercios/{id}', 'AdminController@ShopDelete');
+
+		Route::get('/lista-promociones', 'AdminController@PromotionIndex');
+		Route::get('/Aprovar-promociones/{id}', 'AdminController@PromotionAprove');
+		Route::get('/Eliminar-promociones/{id}', 'AdminController@PromotionDelete');
 
 
-	Route::get('/alta-comercio', 'CommerceController@alta');
-	Route::post('/alta-comercio', 'CommerceController@store');
+		Route::get('/alta-comercio', 'CommerceController@alta');
+		Route::post('/alta-comercio', 'CommerceController@store');
 
-	Route::get('/lista-vouchers', 'VoucherController@listaVouchers');
-	
-	Route::get('/lista-gastos-denunciados', 'VoucherController@gastos');
-	Route::get('/estimar-voucher/{id}', 'VoucherController@estimar');	
-	Route::get('/desestimar-voucher/{id}', 'VoucherController@desestimar');			
+		Route::get('/lista-vouchers', 'VoucherController@listaVouchers');
+		
+		Route::get('/lista-gastos-denunciados', 'VoucherController@gastos');
+		Route::get('/estimar-voucher/{id}', 'VoucherController@estimar');	
+		Route::get('/desestimar-voucher/{id}', 'VoucherController@desestimar');			
 
-	Route::get('/generar-liquidacion', 'VoucherController@listaLiquidacion');
-	Route::post('/generar-liquidacion', 'VoucherController@altaLiquidacion');
-
+		Route::get('/generar-liquidacion', 'VoucherController@listaLiquidacion');
+		Route::post('/generar-liquidacion', 'VoucherController@altaLiquidacion');
+	});
 	Route::auth();
-
-    Route::get('/home', 'HomeController@index');
-
 });	
 
 /*

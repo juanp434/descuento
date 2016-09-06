@@ -80,13 +80,12 @@ class UserController extends Controller
         foreach ($array as $key ) {
            $count++;
         }
+        $shop = Shop::where('user_id', Auth::user()->id)->first()->id;
 
-        $promotions = DB::table('vouchers')
-                        ->join('promotions', 'vouchers.promotion_id', '=', 'promotions.id')
-                        ->groupby('promotions.id')
-                        ->get();
-        $vouchers = voucher::get();
+        $promotions = promotion::where('shop_id', $shop)->get();
         
+        $vouchers = voucher::get();
+        //dd($promotions);
         $saldo=0;
         foreach ($promotions as $promotion) {
             $cont=0;
@@ -126,9 +125,22 @@ class UserController extends Controller
         $pass = $Request->pass;
 
         $user = User::where('email',$email)->get();
-
-        var_dump($email, $pass, $user);
-        //return redirect('/');
+        
+        if (isset($email) && isset($pass)) {
+            if (Auth::attempt(['email' => $email, 'password' => $pass])) {
+            // Authentication passed...
+                if ($user->role == 'admin') {
+                   return redirect()->intended('/admin');
+                }
+                elseif ($user->role == 'shop') {
+                   return redirect()->intended('/shop');
+                }
+                else{
+                    return redirect()->intended('/user');
+                }
+            
+            }
+        }
     }
 
     function store(Request $Request){
